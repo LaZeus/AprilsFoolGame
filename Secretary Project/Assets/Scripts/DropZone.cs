@@ -12,14 +12,14 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // used to check card stuff
     [Header("Card Group Aspects")]
     [Tooltip("Accepts cards of this type")]
-    public Card.CardType typeOfCard = Card.CardType.All;
+    public Draggable.CardType typeOfCard = Draggable.CardType.All;
 
     // when card is dropped actions
     protected Actions OnDropActions;
 
     private Card card = null;
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData) // IPointerEnterHandler
     {
         // add glow effect on Card
 
@@ -34,7 +34,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 card.placeholderParent = transform;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData) // IPointerExitHandler
     {
         // stop glow effect on Card
 
@@ -49,7 +49,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 card.placeholderParent = card.parentToReturnTo;
     }
 
-    public void OnDrop(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData) // IDropHandler
     {
         Debug.Log(eventData.pointerDrag.name + " was dropped on " + gameObject.name);
 
