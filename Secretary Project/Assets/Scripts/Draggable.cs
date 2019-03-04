@@ -83,12 +83,18 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         // placeholder instantiation and settings
         placeholder = new GameObject();
+        placeholder.transform.name = "Placeholder";
         placeholder.transform.SetParent(transform.parent);
-        LayoutElement le = placeholder.AddComponent<LayoutElement>();
-        le.preferredWidth = mLayoutElement.preferredWidth;
-        le.preferredHeight = mLayoutElement.preferredHeight;
-        le.flexibleWidth = 0;
-        le.flexibleHeight = 0;
+
+
+        //LayoutElement le = placeholder.AddComponent<LayoutElement>();
+        //le.preferredWidth = mLayoutElement.preferredWidth;
+        //le.preferredHeight = mLayoutElement.preferredHeight;
+
+        RectTransform rect = placeholder.AddComponent<RectTransform>();
+        rect.sizeDelta = new Vector2(mLayoutElement.preferredWidth, mLayoutElement.preferredHeight);
+        //le.flexibleWidth = 0;
+        //le.flexibleHeight = 0;
 
         // sets placeholder order in dropzone
         placeholder.transform.SetSiblingIndex(transform.GetSiblingIndex());

@@ -24,16 +24,16 @@ public class Deck : MonoBehaviour {
 
     [Header("The Playable Layouts")]
 
-    [SerializeField]    [Tooltip("The player's hand layout")]
-    private LayoutGroup mHand;
+    //[SerializeField]    [Tooltip("The player's hand layout")]
+    //private LayoutGroup mHand;
 
     [SerializeField]    [Tooltip("The player's board layout")]
     private LayoutGroup mBoard;
 
     private void Awake()
     {
-        if(mHand == null)
-            mHand =GameObject.Find("Hand").GetComponent<LayoutGroup>();
+        //if(mHand == null)
+          //  mHand =GameObject.Find("Hand").GetComponent<LayoutGroup>();
 
         //mBoard = GameObject.Find("Tabletop").GetComponent<LayoutGroup>();
     }
@@ -68,7 +68,7 @@ public class Deck : MonoBehaviour {
 
     private void PutTopDeckCardInHand() // currently is hard coded
     {
-        mDeck[0].transform.SetParent(mHand.transform);
+        //mDeck[0].transform.SetParent(mHand.transform);
         mDeck[0].SetActive(true);
         mDeck.RemoveAt(0);
     }

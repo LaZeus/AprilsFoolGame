@@ -58,7 +58,7 @@ public class Card : Draggable {
 
     private void Start()
     {
-        UpdateCard();
+        //UpdateCard();
     }
 
     public void ToDiscardPile() // send card to discard pile. Currently hard coded
