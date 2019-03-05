@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(LayoutGroup))]
 public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler {
 
-    protected delegate void Actions(Card c);
+    protected delegate void Actions(Task c);
 
     // used to check card stuff
     [Header("Card Group Aspects")]
@@ -17,7 +16,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // when card is dropped actions
     protected Actions OnDropActions;
 
-    private Card card = null;
+    private Task task = null;
 
     public void OnPointerEnter(PointerEventData eventData) // IPointerEnterHandler
     {
@@ -26,12 +25,12 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (eventData.pointerDrag == null)
             return;
 
-        card = eventData.pointerDrag.GetComponent<Card>();
+        task = eventData.pointerDrag.GetComponent<Task>();
 
         // store the card's origin parent(i.e. hand or playarea)
-        if (card != null)
-            if (typeOfCard == card.mCardType || typeOfCard == Card.CardType.All)
-                card.placeholderParent = transform;
+        if (task != null)
+            if (typeOfCard == task.mCardType || typeOfCard == Draggable.CardType.All)
+                task.placeholderParent = transform;
     }
 
     public void OnPointerExit(PointerEventData eventData) // IPointerExitHandler
@@ -41,28 +40,28 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (eventData.pointerDrag == null)
             return;
 
-        card = eventData.pointerDrag.GetComponent<Card>();
+        task = eventData.pointerDrag.GetComponent<Task>();
 
         // if the card is out of a playable area then set that the card will return to the original position
-        if (card != null && card.placeholderParent == transform)
-            if (typeOfCard == card.mCardType || typeOfCard == Card.CardType.All)
-                card.placeholderParent = card.parentToReturnTo;
+        if (task != null && task.placeholderParent == transform)
+            if (typeOfCard == task.mCardType || typeOfCard == Draggable.CardType.All)
+                task.placeholderParent = task.parentToReturnTo;
     }
 
     public void OnDrop(PointerEventData eventData) // IDropHandler
     {
         Debug.Log(eventData.pointerDrag.name + " was dropped on " + gameObject.name);
 
-        card = eventData.pointerDrag.GetComponent<Card>();
+        task = eventData.pointerDrag.GetComponent<Task>();
 
         // includes the card in the proper layout group(i.e. hand)
-        if (card != null)
+        if (task != null)
         {
-            if (typeOfCard == card.mCardType || typeOfCard == Draggable.CardType.All)
+            if (typeOfCard == task.mCardType || typeOfCard == Draggable.CardType.All)
             {
-                card.parentToReturnTo = transform;
+                task.parentToReturnTo = transform;
                 if (OnDropActions != null)
-                    OnDropActions(card);
+                    OnDropActions(task);
             }
         }
 

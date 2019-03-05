@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Card : Draggable {
+public class Task : Draggable {
 
     // used for card Attack actions
-    public delegate void Attack(Enemy en);
+    public delegate void Action();
 
-    //[HideInInspector]
-    public Attack CardAttack;
+    public Action TaskAction;
 
     [Header("References")]
 
@@ -20,24 +19,14 @@ public class Card : Draggable {
     //[SerializeField]
     //private Player player;
 
-
     [Header("Card Specific")]
 
     [Tooltip("the card's damage")]
-    public int damage;
+    public string title;
     [Tooltip("the card's stamina cost")]
-    public int cost;
+    public string cost;
     [Tooltip("The card's description. To print Stats use statName_STAT")]
     public string[] description;
-
-
-    [Header("Card References")]
-
-    [SerializeField]
-    private TextMeshProUGUI staminaCostUI;
-
-    [SerializeField]
-    private TextMeshProUGUI cardDescriptionUI;
 
     // add more stuff here
     // and more comments too
@@ -53,7 +42,7 @@ public class Card : Draggable {
         if (deck == null)
             deck = GameObject.Find("Deck").GetComponent<Deck>();
 
-        CardAttack = DealDamage;
+        TaskAction = DisplayText;
     }
 
     private void Start()
@@ -70,41 +59,21 @@ public class Card : Draggable {
 
     #region CardEffects
 
-    private void DealDamage(Enemy en) // currently hard coded for only one enemy. Should change that to apply for AOE damage
+    private void DisplayText() 
     {
-        en.health -= damage;
+        Debug.Log(transform.name);
     }
 
     #endregion
   
 
-    #region CardDisplay
+    #region TaskDisplay
 
-    // gonna be used in the inherited class
-    protected void UpdateCard()
-    {
-        UpdateCardCost(); // update card's cost. Cost might change on runtime.
-        UpdateCardDescription(); // update card's 'description. Description might change on runtime.
-    }
 
-    private void UpdateCardCost()
-    {
-        if(staminaCostUI == null) // fool prof
-        {
-            Debug.LogWarning("Couldn't update " + transform.name + "'s cost");
-            return;
-        }
-
-        staminaCostUI.text = cost.ToString(); // updates description
-    }
 
     private void UpdateCardDescription()
     {
-        if (cardDescriptionUI == null) // fool proof
-        {
-            Debug.LogWarning("Couldn't update " + transform.name + "'s cost");
-            return;
-        }
+       
 
         string text = ""; // description placeholder
 
@@ -115,7 +84,7 @@ public class Card : Draggable {
             switch (description[i]) // checks for variable keywords and adds the proper stat instead
             {
                 case "damage_STAT":
-                    addString = damage.ToString();
+                    addString = title;
                     break;
                 default:
                     addString = description[i];
@@ -125,7 +94,7 @@ public class Card : Draggable {
             text += addString + " ";                     
         }
 
-        cardDescriptionUI.text = text;
+        //cardDescriptionUI.text = text;
     }
 
     #endregion

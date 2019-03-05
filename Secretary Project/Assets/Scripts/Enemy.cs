@@ -26,7 +26,7 @@ public class Enemy : DropZone {
         hpText.text = health.ToString();
     }
 
-    protected void CardEffect(Card card) 
+    protected void CardEffect(Task card) 
     {
         StartCoroutine(ActivateCardEffect(card));
     }
@@ -42,10 +42,10 @@ public class Enemy : DropZone {
     }
 
     // comment this.
-    protected IEnumerator ActivateCardEffect(Card card)
+    protected IEnumerator ActivateCardEffect(Task card)
     {
-        if(card.CardAttack != null) // fool proof
-            card.CardAttack(this);  // perform attack
+        if(card.TaskAction != null) // fool proof
+            card.TaskAction();  // perform attack
 
         HealthControl(); // check if enemy's health is above 0
 
