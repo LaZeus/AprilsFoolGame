@@ -57,11 +57,11 @@ public class Task : Draggable {
         transform.SetParent(deck.transform.Find("DiscardPile"));
     }
 
-    #region CardEffects
+    #region TaskActions
 
     private void DisplayText() 
     {
-        Debug.Log(transform.name);
+        Debug.Log(transform.name + " was moved!");
     }
 
     #endregion
@@ -69,12 +69,8 @@ public class Task : Draggable {
 
     #region TaskDisplay
 
-
-
     private void UpdateCardDescription()
-    {
-       
-
+    {      
         string text = ""; // description placeholder
 
         for (int i = 0; i < description.Length; i++) // adds all elements of the array to the description

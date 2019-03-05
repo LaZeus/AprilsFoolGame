@@ -449,6 +449,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.58448935
+      objectReference: {fileID: 0}
     - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -577,6 +582,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.30980396
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7203958
       objectReference: {fileID: 0}
     - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -1947,6 +1967,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.37093437
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.30980396
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7921569
+      objectReference: {fileID: 0}
     - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2530,6 +2565,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.425135
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7921569
+      objectReference: {fileID: 0}
     - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2925,10 +2970,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1358586016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e89525b9ece3f74c9567d1757088acb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3869bb8ffacaff34bb1ebca0a302e723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfCard: 2
+  typeOfTank: 2
 --- !u!114 &1358586021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3109,20 +3154,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b214408c5d15a2149b8cc7e7f8428a5b, type: 3}
---- !u!1 &1555081188 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7045584144425594672, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 7045584143814232276}
-  m_PrefabAsset: {fileID: 0}
---- !u!222 &1555081192
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555081188}
-  m_CullTransparentMesh: 0
 --- !u!1 &1804876865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,7 +3267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e89525b9ece3f74c9567d1757088acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfCard: 0
+  typeOfTank: 2
 --- !u!1 &1814538026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,7 +3738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e89525b9ece3f74c9567d1757088acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfCard: 2
+  typeOfTank: 2
 --- !u!114 &2066811903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3884,6 +3915,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976279, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Larry
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.30980396
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.31955197
       objectReference: {fileID: 0}
     - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}

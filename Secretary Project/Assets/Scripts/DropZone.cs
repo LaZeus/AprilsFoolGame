@@ -11,7 +11,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // used to check card stuff
     [Header("Card Group Aspects")]
     [Tooltip("Accepts cards of this type")]
-    public Draggable.CardType typeOfCard = Draggable.CardType.All;
+    public Draggable.TaskType typeOfTank = Draggable.TaskType.All;
 
     // when card is dropped actions
     protected Actions OnDropActions;
@@ -29,7 +29,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // store the card's origin parent(i.e. hand or playarea)
         if (task != null)
-            if (typeOfCard == task.mCardType || typeOfCard == Draggable.CardType.All)
+            if (typeOfTank == task.mCardType || typeOfTank == Draggable.TaskType.All)
                 task.placeholderParent = transform;
     }
 
@@ -44,7 +44,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // if the card is out of a playable area then set that the card will return to the original position
         if (task != null && task.placeholderParent == transform)
-            if (typeOfCard == task.mCardType || typeOfCard == Draggable.CardType.All)
+            if (typeOfTank == task.mCardType || typeOfTank == Draggable.TaskType.All)
                 task.placeholderParent = task.parentToReturnTo;
     }
 
@@ -57,7 +57,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // includes the card in the proper layout group(i.e. hand)
         if (task != null)
         {
-            if (typeOfCard == task.mCardType || typeOfCard == Draggable.CardType.All)
+            if (typeOfTank == task.mCardType || typeOfTank == Draggable.TaskType.All)
             {
                 task.parentToReturnTo = transform;
                 if (OnDropActions != null)

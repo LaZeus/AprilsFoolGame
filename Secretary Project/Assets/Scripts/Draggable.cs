@@ -9,14 +9,14 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     
     // used for card stuff
-    public enum CardType {Attack, Escape, All};
+    public enum TaskType {Attack, Escape, All};
 
     // add get/set..probably...well future Dimitri..be sure to add it
     // future Dimitri saw that..and ignored it.. but future Dimitri^2 will do it
     // also will add the feature that you can't play cards if you don't have the stamina
     [Header("CardSpecific")]
     [Tooltip("CARD CAN'T BE OF TYPE 'ALL'")]
-    public CardType mCardType = CardType.Attack;
+    public TaskType mCardType = TaskType.Attack;
 
     [Header("Card Management")]
     [Tooltip("Allows the user to change the cards order during runtime")]
