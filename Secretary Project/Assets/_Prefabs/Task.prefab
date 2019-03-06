@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 225046550536978292}
   - component: {fileID: 114922248632322664}
   m_Layer: 5
-  m_Name: Card
+  m_Name: Task
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,14 +130,12 @@ MonoBehaviour:
   mCanvasGrp: {fileID: 225046550536978292}
   mLayoutElement: {fileID: 114562491975887990}
   deck: {fileID: 0}
-  damage: 20
+  title: 
   cost: 2
   description:
   - Deal
   - damage_STAT
   - damage!
-  staminaCostUI: {fileID: 0}
-  cardDescriptionUI: {fileID: 0}
 --- !u!1 &1544944431109184
 GameObject:
   m_ObjectHideFlags: 0

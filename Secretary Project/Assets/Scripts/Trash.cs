@@ -31,6 +31,6 @@ public class Trash : DropZone {
 
         yield return null;
 
-        task.ToDiscardPile(); // send the just activated card to discard pile
+        task.ToCompletedTasksPile(); // send the just activated card to discard pile
     }
 }

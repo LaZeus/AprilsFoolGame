@@ -30,6 +30,11 @@ public class Employee : DropZone
 
         yield return null;
 
-        task.ToDiscardPile(); // send the just activated card to discard pile
+        task.ToCompletedTasksPile(); // send the just activated card to discard pile
+    }
+
+    public void ReturnToBase()
+    {
+        Debug.Log(transform.name + " now returns to base!");
     }
 }

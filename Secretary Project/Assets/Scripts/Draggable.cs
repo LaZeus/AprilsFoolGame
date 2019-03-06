@@ -35,13 +35,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     [SerializeField]
     private LayoutElement mLayoutElement;
 
-    private Vector2 offset; // will store the offeset between mouse and card 
+    //private Vector2 offset; // will store the offeset between mouse and card 
 
     private GameObject placeholder = null; // placeholder for the card you are moving
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        offset = (Vector2)transform.position - eventData.position;
+        //offset = (Vector2)transform.position - eventData.position;
         CreatePlaceholder();
 
         // turn off raycasts so you can select the dropzone instead of the card
@@ -51,7 +51,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnDrag(PointerEventData eventData)
     {
         // card follows mouse pointer
-        transform.position = eventData.position + offset;
+        transform.position = eventData.position; //+ offset
 
         ChangeCardsPosition();
     }

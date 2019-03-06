@@ -50,7 +50,7 @@ public class Task : Draggable {
         //UpdateCard();
     }
 
-    public void ToDiscardPile() // send card to discard pile. Currently hard coded
+    public void ToCompletedTasksPile() // send card to discard pile. Currently hard coded
     {
         deck.mDiscard.Add(gameObject);
         gameObject.SetActive(false);
