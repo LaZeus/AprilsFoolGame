@@ -8,6 +8,9 @@ public class Trash : DropZone {
     // add stats here
     // and more stuff
 
+    private TaskManager taskMan;
+    private Transform tasks;
+
 	void Awake ()
     {
         Initialization();
@@ -16,6 +19,12 @@ public class Trash : DropZone {
     protected void Initialization() // gonna be used from the inherited class
     {
         OnDropActions = TaskEffect; // when a card is placed on enemy
+
+        if (taskMan == null)
+            taskMan = FindObjectOfType<TaskManager>().GetComponent<TaskManager>();
+
+        if (tasks == null)
+            tasks = GameObject.Find("Tasks").transform;
     }
 
     protected void TaskEffect(Task task)
@@ -32,5 +41,7 @@ public class Trash : DropZone {
         yield return null;
 
         task.ToCompletedTasksPile(); // send the just activated card to discard pile
+
+        tasks.GetChild(0).GetComponent<Task>().SendDataToTaskManager();
     }
 }

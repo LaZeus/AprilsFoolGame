@@ -130,12 +130,10 @@ MonoBehaviour:
   mCanvasGrp: {fileID: 225046550536978292}
   mLayoutElement: {fileID: 114562491975887990}
   deck: {fileID: 0}
-  title: 
-  cost: 2
-  description:
-  - Deal
-  - damage_STAT
-  - damage!
+  description: TempText
+  person: TempText
+  room: TempText
+  details: TempText
 --- !u!1 &1544944431109184
 GameObject:
   m_ObjectHideFlags: 0

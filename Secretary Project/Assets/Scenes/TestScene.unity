@@ -119,6 +119,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223816373}
     m_Modifications:
+    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
+        type: 3}
+      propertyPath: m_Name
+      value: Library (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -128,11 +133,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
-        type: 3}
-      propertyPath: m_Name
-      value: Library (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3790309304456019740, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 28225261}
   - component: {fileID: 28225263}
   - component: {fileID: 28225262}
+  - component: {fileID: 28225264}
   m_Layer: 5
   m_Name: TaskDescription
   m_TagString: Untagged
@@ -323,6 +324,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28225260}
   m_CullTransparentMesh: 0
+--- !u!114 &28225264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28225260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b029c12017b804141af2519ecba7b173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: {fileID: 669528975}
+  person: {fileID: 699964533}
+  room: {fileID: 405900915}
+  details: {fileID: 881016678}
 --- !u!1 &30391702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,7 +1225,7 @@ PrefabInstance:
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
       propertyPath: description.Array.size
-      value: 3
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
@@ -1223,12 +1240,32 @@ PrefabInstance:
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
       propertyPath: description.Array.data[2]
-      value: damage!
+      value: 109
       objectReference: {fileID: 0}
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
       propertyPath: description.Array.data[1]
-      value: damage_STAT
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: description
+      value: TempTextYellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: person
+      value: TempTextYellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: room
+      value: TempTextYellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: details
+      value: TempTextYellow
       objectReference: {fileID: 0}
     - target: {fileID: 224694633411724244, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
@@ -1416,6 +1453,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223816373}
     m_Modifications:
+    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
+        type: 3}
+      propertyPath: m_Name
+      value: Library (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -1425,11 +1467,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
-        type: 3}
-      propertyPath: m_Name
-      value: Library (6)
       objectReference: {fileID: 0}
     - target: {fileID: 3790309304456019740, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
@@ -2311,7 +2348,27 @@ PrefabInstance:
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
       propertyPath: description.Array.data[1]
-      value: damage_STAT
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: description
+      value: TempTextGre
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: person
+      value: TempTextGre
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: room
+      value: TempTextGre
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: details
+      value: TempTextGre
       objectReference: {fileID: 0}
     - target: {fileID: 224694633411724244, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
@@ -2499,6 +2556,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223816373}
     m_Modifications:
+    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
+        type: 3}
+      propertyPath: m_Name
+      value: Library (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2508,11 +2570,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
-        type: 3}
-      propertyPath: m_Name
-      value: Library (7)
       objectReference: {fileID: 0}
     - target: {fileID: 3790309304456019740, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
@@ -3005,6 +3062,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2066811901}
     m_Modifications:
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: description
+      value: TempTextRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: person
+      value: TempTextRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: room
+      value: TempTextRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
+        type: 3}
+      propertyPath: details
+      value: TempTextRed
+      objectReference: {fileID: 0}
     - target: {fileID: 224694633411724244, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3142,6 +3219,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223816373}
     m_Modifications:
+    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
+        type: 3}
+      propertyPath: m_Name
+      value: Library (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -3151,11 +3233,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
-        type: 3}
-      propertyPath: m_Name
-      value: Library (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3790309304456019740, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
@@ -3277,6 +3354,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223816373}
     m_Modifications:
+    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
+        type: 3}
+      propertyPath: m_Name
+      value: Library (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -3286,11 +3368,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
-        type: 3}
-      propertyPath: m_Name
-      value: Library (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3790309304456019740, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
@@ -3531,6 +3608,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223816373}
     m_Modifications:
+    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
+        type: 3}
+      propertyPath: m_Name
+      value: Library (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -3540,11 +3622,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
-        type: 3}
-      propertyPath: m_Name
-      value: Library (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3790309304456019740, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
@@ -4388,6 +4465,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223816373}
     m_Modifications:
+    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
+        type: 3}
+      propertyPath: m_Name
+      value: Library
+      objectReference: {fileID: 0}
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -4397,11 +4479,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
-        type: 3}
-      propertyPath: m_Name
-      value: Library
       objectReference: {fileID: 0}
     - target: {fileID: 3790309304456019740, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}

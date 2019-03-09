@@ -11,16 +11,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     // used for card stuff
     public enum TaskType {Attack, Escape, All};
 
-    // add get/set..probably...well future Dimitri..be sure to add it
-    // future Dimitri saw that..and ignored it.. but future Dimitri^2 will do it
-    // also will add the feature that you can't play cards if you don't have the stamina
-    [Header("CardSpecific")]
+    public delegate void Action();
+
+    protected Action onPickActions;
+
+    [Header("Task Specific")]
     [Tooltip("CARD CAN'T BE OF TYPE 'ALL'")]
     public TaskType mCardType = TaskType.Attack;
 
-    [Header("Card Management")]
+    [Header("Task Management")]
     [Tooltip("Allows the user to change the cards order during runtime")]
-    public bool changeCardOrder;
+    public bool changeTaskOrder;
 
     [HideInInspector]
     public Transform parentToReturnTo = null;
@@ -41,6 +42,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        onPickActions?.Invoke();
+
         //offset = (Vector2)transform.position - eventData.position;
         CreatePlaceholder();
 
@@ -53,7 +56,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         // card follows mouse pointer
         transform.position = eventData.position; //+ offset
 
-        ChangeCardsPosition();
+        ChangeTasksPosition();
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -98,11 +101,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         transform.SetParent(transform.parent.parent);
     }
 
-    private void ChangeCardsPosition()
+    private void ChangeTasksPosition()
     {
         //<Change Card Order>
 
-        if (changeCardOrder)
+        if (changeTaskOrder)
         {
             if (placeholder.transform.parent != placeholderParent)
                 placeholder.transform.SetParent(placeholderParent);

@@ -6,7 +6,6 @@ using TMPro;
 public class Task : Draggable {
 
     // used for card Attack actions
-    public delegate void Action();
 
     public Action TaskAction;
 
@@ -15,18 +14,18 @@ public class Task : Draggable {
     [SerializeField]
     private Deck deck;
 
+    private TaskManager TaskMan;
+
     // add player's reference here
     //[SerializeField]
     //private Player player;
 
-    [Header("Card Specific")]
+    [Header("Task Specific")]
 
-    [Tooltip("the card's damage")]
-    public string title;
-    [Tooltip("the card's stamina cost")]
-    public string cost;
-    [Tooltip("The card's description. To print Stats use statName_STAT")]
-    public string[] description;
+    public string description;
+    public string person;
+    public string room;
+    public string details;
 
     // add more stuff here
     // and more comments too
@@ -42,7 +41,14 @@ public class Task : Draggable {
         if (deck == null)
             deck = GameObject.Find("Deck").GetComponent<Deck>();
 
-        TaskAction = DisplayText;
+        if (TaskMan == null)
+            TaskMan = FindObjectOfType<TaskManager>().GetComponent<TaskManager>();
+
+        TaskAction -= DisplayText;
+        TaskAction += DisplayText;
+
+        onPickActions -= SendDataToTaskManager;
+        onPickActions += SendDataToTaskManager;
     }
 
     private void Start()
@@ -66,10 +72,14 @@ public class Task : Draggable {
 
     #endregion
   
-
     #region TaskDisplay
 
-    private void UpdateCardDescription()
+    public void SendDataToTaskManager()
+    {
+        TaskMan.UpdateDescription(description, person, room, description);
+    }
+
+    /*private void UpdateCardDescription()
     {      
         string text = ""; // description placeholder
 
@@ -91,7 +101,7 @@ public class Task : Draggable {
         }
 
         //cardDescriptionUI.text = text;
-    }
+    }*/
 
     #endregion
 
