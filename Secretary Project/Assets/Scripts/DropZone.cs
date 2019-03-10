@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler {
 
+    protected delegate void Action();
     protected delegate void Actions(Task c);
 
     // used to check card stuff
@@ -14,6 +15,8 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Draggable.TaskType typeOfTank = Draggable.TaskType.All;
 
     // when card is dropped actions
+    protected Action onPointerEnterActions;
+    protected Action onPointerExitActions;
     protected Actions OnDropActions;
 
     private Task task = null;
@@ -23,7 +26,10 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // add glow effect on Card
 
         if (eventData.pointerDrag == null)
+        {
+            onPointerEnterActions?.Invoke();
             return;
+        }
 
         task = eventData.pointerDrag.GetComponent<Task>();
 
@@ -38,7 +44,10 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // stop glow effect on Card
 
         if (eventData.pointerDrag == null)
+        {
+            onPointerExitActions?.Invoke();
             return;
+        }
 
         task = eventData.pointerDrag.GetComponent<Task>();
 
@@ -60,8 +69,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (typeOfTank == task.mCardType || typeOfTank == Draggable.TaskType.All)
             {
                 task.parentToReturnTo = transform;
-                if (OnDropActions != null)
-                    OnDropActions(task);
+                OnDropActions?.Invoke(task);
             }
         }
 
