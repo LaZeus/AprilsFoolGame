@@ -42,6 +42,7 @@ public class Trash : DropZone {
 
         task.ToCompletedTasksPile(); // send the just activated card to discard pile
 
-        tasks.GetChild(0).GetComponent<Task>().SendDataToTaskManager();
+        if (tasks.childCount > 0)
+            tasks.GetChild(0).GetComponent<Task>().SendDataToTaskManager();
     }
 }
