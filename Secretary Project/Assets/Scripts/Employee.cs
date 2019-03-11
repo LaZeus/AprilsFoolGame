@@ -66,13 +66,11 @@ public class Employee : DropZone
 
     private void ShowStats()
     {
-        Debug.Log("Show stats");
         statsPanel.SetActive(true);
     }
 
     private void HideStats()
     {
-        Debug.Log("Hide stats");
         statsPanel.SetActive(false);
     }
 }
