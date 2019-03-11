@@ -57,16 +57,19 @@ public class OfficeGenerator : MonoBehaviour
 
         for (int i = 0; i < numberOfOfficeRooms; i++)
         {
+            Vector2 curRoomPos;
             // generate room
             if (RandomBool()) // attach to office
             {
-                Vector2 curRoomPos = RandomRoom((int)officePosition.x, (int)officePosition.y);
+                curRoomPos = RandomRoom((int)officePosition.x, (int)officePosition.y);
             }
             else // attach to last placed room
             {
-                Vector2 curRoomPos = RandomRoom(prevRoom[0], prevRoom[1]);
+                curRoomPos = RandomRoom(prevRoom[0], prevRoom[1]);
             }
             // store room's position in prevRoom
+            prevRoom[0] = (int)curRoomPos.x;
+            prevRoom[1] = (int)curRoomPos.y;
         }
     }
 
@@ -99,7 +102,20 @@ public class OfficeGenerator : MonoBehaviour
         List<int[]> acceptablePlacements = new List<int[]>();
         acceptablePlacements.Add(new int[2]);
 
+        // check for acceptable rooms
+        for (int i = 0; i < 2; i++)      
+            for (int k = 0; k < 2; k++)            
+                // Assign them to the list
+                if (IsAcceptableRoom(x + i, y + k))
+                {
+                    int[] room = new int[2];
+                    room[0] = x + i;
+                    room[1] = y + k;
 
+                    acceptablePlacements.Add(room);
+                }
+
+        //if there are no acceptable rooms
         if (acceptablePlacements.Count == 0) return Vector2.zero;
 
         // return positions
@@ -107,16 +123,15 @@ public class OfficeGenerator : MonoBehaviour
         return new Vector2(acceptablePlacements[pos][0], acceptablePlacements[pos][1]);
     }
 
-    private bool IsAcceptableMove(int x, int y)
+    private bool IsAcceptableRoom(int x, int y)
     {
         if (x < 0 || y < 0 || x > maxOfficeLength - 1 || y > maxOfficeLength - 1)
-            return false;
+            return false; // index out of length
 
         if (office[x,y] == -1)
-        {
-            return true;
-        }
-        return false;
+            return true; // empty space
+
+        return false; // something already there
     }
 
     private bool RandomBool()
