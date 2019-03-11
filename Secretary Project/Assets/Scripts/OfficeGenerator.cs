@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OfficeGenerator : MonoBehaviour
 {
+    public const int maxOfficeLength = 9;
+
     [SerializeField]
     private int[] roomNumberLimit;
 
@@ -13,7 +15,7 @@ public class OfficeGenerator : MonoBehaviour
     private Transform officeParent;
 
     [SerializeField]
-    private int[,] office = new int[9, 9];
+    private int[,] office = new int[maxOfficeLength, maxOfficeLength];
 
     // Start is called before the first frame update
     void Start()
@@ -34,15 +36,15 @@ public class OfficeGenerator : MonoBehaviour
 
     private void InitializeOffice()
     {
-        for (int i = 0; i < 9; i++)
-            for (int k = 0; k < 9; k++)
+        for (int i = 0; i < maxOfficeLength; i++)
+            for (int k = 0; k < maxOfficeLength; k++)
                 office[i, k] = -1;
     }
 
     private void GenerateOffice()
     {
         // Office placement
-        Vector2 officePosition = new Vector2(Random.Range(0,9), Random.Range(0, 9));
+        Vector2 officePosition = new Vector2(Random.Range(0,maxOfficeLength), Random.Range(0, maxOfficeLength));
 
         office[(int)officePosition.x, (int)officePosition.y] = 0;
 
@@ -62,8 +64,9 @@ public class OfficeGenerator : MonoBehaviour
             }
             else // attach to last placed room
             {
-
+                Vector2 curRoomPos = RandomRoom(prevRoom[0], prevRoom[1]);
             }
+            // store room's position in prevRoom
         }
     }
 
@@ -76,11 +79,11 @@ public class OfficeGenerator : MonoBehaviour
     {
         string printedMessage = "Office: \n";
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < maxOfficeLength; i++)
         {
             string officeCode = " ";
 
-            for (int k = 0; k < 9; k++)
+            for (int k = 0; k < maxOfficeLength; k++)
             {
                 if (office[i, k] == -1) officeCode += "- ";
                 else officeCode += office[i, k].ToString() + " ";
@@ -93,17 +96,31 @@ public class OfficeGenerator : MonoBehaviour
 
     private Vector2 RandomRoom(int x, int y)
     {
-        List<int> accPlacements = new List<int>();
+        List<int[]> acceptablePlacements = new List<int[]>();
+        acceptablePlacements.Add(new int[2]);
 
 
+        if (acceptablePlacements.Count == 0) return Vector2.zero;
 
         // return positions
-        return new Vector2();
+        int pos = Random.Range(0, acceptablePlacements.Count);
+        return new Vector2(acceptablePlacements[pos][0], acceptablePlacements[pos][1]);
+    }
+
+    private bool IsAcceptableMove(int x, int y)
+    {
+        if (x < 0 || y < 0 || x > maxOfficeLength - 1 || y > maxOfficeLength - 1)
+            return false;
+
+        if (office[x,y] == -1)
+        {
+            return true;
+        }
+        return false;
     }
 
     private bool RandomBool()
     {
         return (Random.value > 0.5f);
     }
-
 }
