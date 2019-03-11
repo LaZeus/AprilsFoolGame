@@ -44,12 +44,12 @@ public class OfficeGenerator : MonoBehaviour
     private void GenerateOffice()
     {
         // Office placement
-        Vector2 officePosition = new Vector2(Random.Range(0,maxOfficeLength), Random.Range(0, maxOfficeLength));
+        Vector2 officePosition = new Vector2(Random.Range(0, maxOfficeLength), Random.Range(0, maxOfficeLength));
 
         office[(int)officePosition.x, (int)officePosition.y] = 0;
 
         // Place adjacent
-        int numberOfOfficeRooms = Random.Range(roomNumberLimit[0]-1, roomNumberLimit[1]);
+        int numberOfOfficeRooms = Random.Range(roomNumberLimit[0], roomNumberLimit[1]) - 1;
 
         int[] prevRoom = new int[2];
         prevRoom[0] = (int)officePosition.x;
@@ -67,6 +67,9 @@ public class OfficeGenerator : MonoBehaviour
             {
                 curRoomPos = RandomRoom(prevRoom[0], prevRoom[1]);
             }
+
+            office[(int)curRoomPos.x, (int)curRoomPos.y] = 1;
+
             // store room's position in prevRoom
             prevRoom[0] = (int)curRoomPos.x;
             prevRoom[1] = (int)curRoomPos.y;
@@ -100,28 +103,45 @@ public class OfficeGenerator : MonoBehaviour
     private Vector2 RandomRoom(int x, int y)
     {
         List<int[]> acceptablePlacements = new List<int[]>();
-        acceptablePlacements.Add(new int[2]);
 
         // check for acceptable rooms
-        for (int i = 0; i < 2; i++)      
-            for (int k = 0; k < 2; k++)            
-                // Assign them to the list
-                if (IsAcceptableRoom(x + i, y + k))
-                {
-                    int[] room = new int[2];
-                    room[0] = x + i;
-                    room[1] = y + k;
 
-                    acceptablePlacements.Add(room);
-                }
+        // Assign them to the list
+        for (int i = -1; i < 2; i+=2)
+        {
+            if (IsAcceptableRoom(x + i, y))
+            {
+                int[] room = new int[2];
+                room[0] = x + i;
+                room[1] = y;
+
+                acceptablePlacements.Add(room);
+            }
+        }
+        for (int i = -1; i < 2; i += 2)
+        {
+            if (IsAcceptableRoom(x, y + i))
+            {
+                int[] room = new int[2];
+                room[0] = x;
+                room[1] = y + i;
+
+                acceptablePlacements.Add(room);
+            }
+        }
+
 
         //if there are no acceptable rooms
-        if (acceptablePlacements.Count == 0) return Vector2.zero;
+        if (acceptablePlacements.Count == 0)
+        {
+            Debug.Log("No acceptable moves");
+            return Vector2.zero;
+        }
 
         // return positions
         int pos = Random.Range(0, acceptablePlacements.Count);
         return new Vector2(acceptablePlacements[pos][0], acceptablePlacements[pos][1]);
-    }
+    } 
 
     private bool IsAcceptableRoom(int x, int y)
     {
