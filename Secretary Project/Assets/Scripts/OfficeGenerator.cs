@@ -134,7 +134,7 @@ public class OfficeGenerator : MonoBehaviour
         //if there are no acceptable rooms
         if (acceptablePlacements.Count == 0)
         {
-            Debug.Log("No acceptable moves");
+            Debug.LogWarning("No acceptable moves");
             return Vector2.zero;
         }
 
