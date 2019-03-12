@@ -44,7 +44,9 @@ public class OfficeGenerator : MonoBehaviour
     private void GenerateOffice()
     {
         // Office placement
-        Vector2 officePosition = new Vector2(Random.Range(0, maxOfficeLength), Random.Range(0, maxOfficeLength));
+        Vector2 officePosition = new Vector2(
+            Random.Range(maxOfficeLength / 3, maxOfficeLength * 2 / 3), 
+            Random.Range(maxOfficeLength / 3, maxOfficeLength * 2 / 3));
 
         office[(int)officePosition.x, (int)officePosition.y] = 0;
 
@@ -63,7 +65,7 @@ public class OfficeGenerator : MonoBehaviour
             // generate room
             if (RandomBool()) // attach to office
             {
-                curRoomPos = RandomRoom((int)officePosition.x, (int)officePosition.y, rooms);
+                 curRoomPos = RandomRoom((int)officePosition.x, (int)officePosition.y, rooms);
             }
             else // attach to last placed room
             {
@@ -115,14 +117,15 @@ public class OfficeGenerator : MonoBehaviour
         FindProperRoom(x, y, nextRoomToCheck, ref nextRoomToCheck, ref acceptablePlacements, ref prevRooms);
 
         // return positions
-        int pos = Random.Range(0, acceptablePlacements.Count);
+        int pos = Random.Range(0, acceptablePlacements.Count - 1);
+        if (pos < 0) Debug.LogWarning("Pos is negative");
         return new Vector2(acceptablePlacements[pos][0], acceptablePlacements[pos][1]);
     }
 
     private void FindProperRoom(int x, int y, int curNumber, ref int nextRoomToCheck, ref List<int[]> acceptablePlacements, ref List<int[]> rooms)
     {
         // check for acceptable rooms and assign them to the list
-        CheckAdjusentRooms(x, y, out acceptablePlacements);
+        CheckAdjusentRooms(x, y, ref acceptablePlacements);
 
         //if there are no acceptable rooms
         if (acceptablePlacements.Count == 0)
@@ -132,53 +135,49 @@ public class OfficeGenerator : MonoBehaviour
             if (nextRoomToCheck < 0)
             {
                 Debug.LogWarning("No acceptable moves");
+                PrintOffice();
             }
-
-            // recursion
-            FindProperRoom(
-                rooms[nextRoomToCheck][0], 
-                rooms[nextRoomToCheck][1],
-                nextRoomToCheck,
-                ref nextRoomToCheck,
-                ref acceptablePlacements,
-                ref rooms);
+            else
+            {
+                // recursion
+                FindProperRoom(
+                    rooms[nextRoomToCheck][0],
+                    rooms[nextRoomToCheck][1],
+                    nextRoomToCheck,
+                    ref nextRoomToCheck,
+                    ref acceptablePlacements,
+                    ref rooms);
+            }
         }
     }
 
-    private void CheckAdjusentRooms(int x, int y, out List<int[]> acceptablePlacements)
+    private void CheckAdjusentRooms(int x, int y, ref List<int[]> acceptablePlacements)
     {
-        List<int[]> accPlacements = new List<int[]>();
+        CheckLeftRight(x, y, ref acceptablePlacements);
+        CheckUpDown(x, y, ref acceptablePlacements);
+    }
 
+    private void CheckUpDown(int x, int y, ref List<int[]> acceptablePlacements)
+    {
         for (int i = -1; i < 2; i += 2)
-        {
+            if (IsAcceptableRoom(x, y + i))           
+                acceptablePlacements.Add(new int[] { x , y + 1});                  
+    }
+
+    private void CheckLeftRight(int x, int y, ref List<int[]> acceptablePlacements)
+    {
+        for (int i = -1; i < 2; i += 2)
             if (IsAcceptableRoom(x + i, y))
-            {
-                int[] room = new int[2];
-                room[0] = x + i;
-                room[1] = y;
-
-                accPlacements.Add(room);
-            }
-        }
-        for (int i = -1; i < 2; i += 2)
-        {
-            if (IsAcceptableRoom(x, y + i))
-            {
-                int[] room = new int[2];
-                room[0] = x;
-                room[1] = y + i;
-
-                accPlacements.Add(room);
-            }
-        }
-
-        acceptablePlacements = accPlacements;
+                acceptablePlacements.Add(new int[] { x + i, y });
     }
 
     private bool IsAcceptableRoom(int x, int y)
     {
-        if (x < 0 || y < 0 || x > maxOfficeLength - 1 || y > maxOfficeLength - 1)
+        if (x < 0 || y < 0 || x >= maxOfficeLength || y >= maxOfficeLength)
+        {
+            Debug.LogWarning("Not acceptable: "+ x + " " + y);
             return false; // index out of length
+        }
 
         if (office[x,y] == -1)
             return true; // empty space
