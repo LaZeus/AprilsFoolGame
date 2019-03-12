@@ -110,7 +110,7 @@ public class OfficeGenerator : MonoBehaviour
     private Vector2 RandomRoom(int x, int y, List<int[]> prevRooms)
     {
         //List<int[]> nonCheckedRooms = new List<int[]>();
-        int nextRoomToCheck = prevRooms.Count - 1;
+        int nextRoomToCheck = prevRooms.Count;
 
         List<int[]> acceptablePlacements = new List<int[]>();
 
@@ -174,11 +174,8 @@ public class OfficeGenerator : MonoBehaviour
     private bool IsAcceptableRoom(int x, int y)
     {
         if (x < 0 || y < 0 || x >= maxOfficeLength || y >= maxOfficeLength)
-        {
-            //Debug.LogWarning("Not acceptable: "+ x + " " + y);
             return false; // index out of length
-        }
-
+        
         if (office[x,y] == -1)
             return true; // empty space
 
