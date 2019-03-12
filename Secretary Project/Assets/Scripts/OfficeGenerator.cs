@@ -161,7 +161,7 @@ public class OfficeGenerator : MonoBehaviour
     {
         for (int i = -1; i < 2; i += 2)
             if (IsAcceptableRoom(x, y + i))           
-                acceptablePlacements.Add(new int[] { x , y + 1});                  
+                acceptablePlacements.Add(new int[] { x , y + i});                  
     }
 
     private void CheckLeftRight(int x, int y, ref List<int[]> acceptablePlacements)
@@ -175,7 +175,7 @@ public class OfficeGenerator : MonoBehaviour
     {
         if (x < 0 || y < 0 || x >= maxOfficeLength || y >= maxOfficeLength)
         {
-            Debug.LogWarning("Not acceptable: "+ x + " " + y);
+            //Debug.LogWarning("Not acceptable: "+ x + " " + y);
             return false; // index out of length
         }
 
