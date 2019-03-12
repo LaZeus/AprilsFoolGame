@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8e7a324ba5f304baa1ba1bf5fa0afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomNumberLimit: 0a0000000f000000
+  roomNumberLimit: 080000000a000000
   possibleRooms:
   - {fileID: 4048867244644938703, guid: 20c5a22e97489394bb463d0201d27278, type: 3}
   - {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80, type: 3}
