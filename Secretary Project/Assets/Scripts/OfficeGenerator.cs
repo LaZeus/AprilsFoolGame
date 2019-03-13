@@ -42,6 +42,8 @@ public class OfficeGenerator : MonoBehaviour
         for (int i = 0; i < maxOfficeLength; i++)
             for (int k = 0; k < maxOfficeLength; k++)
                 office[i, k] = -1;
+
+        rooms.Clear();
     }
 
     private void GenerateOffice()
@@ -93,6 +95,11 @@ public class OfficeGenerator : MonoBehaviour
 
     private void InstantiateOffice()
     {
+        for (int i = 0; i < officeParent.childCount; i++)
+        {
+            Destroy(officeParent.GetChild(i).gameObject);
+        }
+
         int offset = 60;
         for (int i = 0; i < rooms.Count; i++)
         {
