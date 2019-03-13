@@ -17,6 +17,9 @@ public class OfficeGenerator : MonoBehaviour
     [SerializeField]
     private int[,] office = new int[maxOfficeLength, maxOfficeLength];
 
+    [SerializeField]
+    List<int[]> rooms = new List<int[]>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +56,7 @@ public class OfficeGenerator : MonoBehaviour
         // Place adjacent
         int numberOfOfficeRooms = Random.Range(roomNumberLimit[0], roomNumberLimit[1]) - 1;
 
-        List<int[]> rooms = new List<int[]>();
+        //List<int[]> rooms = new List<int[]>();
         List<int[]> acceptableRooms = new List<int[]>();
 
         int[] officeRoom = new int[] { (int)officePosition.x, (int)officePosition.y };
@@ -90,7 +93,21 @@ public class OfficeGenerator : MonoBehaviour
 
     private void InstantiateOffice()
     {
+        int offset = 60;
+        for (int i = 0; i < rooms.Count; i++)
+        {
+            // depending on the room's code it will spawn the equivalent of that list
+            GameObject roomPrefab = possibleRooms[office[rooms[i][0], rooms[i][1]]];
 
+            GameObject go = Instantiate(
+                roomPrefab,
+                officeParent.transform.position + 
+                Vector3.down * offset * (rooms[i][0] - maxOfficeLength/2) +
+                Vector3.right * offset * (rooms[i][1] - maxOfficeLength / 2),
+                officeParent.transform.rotation,
+                officeParent);
+
+        }
     }
 
     private void PrintOffice()
