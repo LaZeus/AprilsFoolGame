@@ -95,12 +95,12 @@ public class OfficeGenerator : MonoBehaviour
 
     private void InstantiateOffice()
     {
-        for (int i = 0; i < officeParent.childCount; i++)
-        {
+        for (int i = 0; i < officeParent.childCount; i++)      
             Destroy(officeParent.GetChild(i).gameObject);
-        }
+        
 
-        int offset = 60;
+        int spacing = 60;
+
         for (int i = 0; i < rooms.Count; i++)
         {
             // depending on the room's code it will spawn the equivalent of that list
@@ -109,8 +109,8 @@ public class OfficeGenerator : MonoBehaviour
             GameObject go = Instantiate(
                 roomPrefab,
                 officeParent.transform.position + 
-                Vector3.down * offset * (rooms[i][0] - maxOfficeLength/2) +
-                Vector3.right * offset * (rooms[i][1] - maxOfficeLength / 2),
+                Vector3.down * spacing * (rooms[i][0] - maxOfficeLength/2) +
+                Vector3.right * spacing * (rooms[i][1] - maxOfficeLength / 2),
                 officeParent.transform.rotation,
                 officeParent);
 
