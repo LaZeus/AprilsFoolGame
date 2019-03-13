@@ -54,32 +54,47 @@ public class OfficeGenerator : MonoBehaviour
         int numberOfOfficeRooms = Random.Range(roomNumberLimit[0], roomNumberLimit[1]) - 1;
 
         List<int[]> rooms = new List<int[]>();
+        List<int[]> acceptableRooms = new List<int[]>();
 
-        int[] prevRoom = new int[] { (int)officePosition.x, (int)officePosition.y };
+        int[] officeRoom = new int[] { (int)officePosition.x, (int)officePosition.y };
 
-        rooms.Add(prevRoom);
+        rooms.Add(officeRoom);
+        acceptableRooms.Add(officeRoom);
 
         for (int i = 0; i < numberOfOfficeRooms; i++)
         {
             Vector2 curRoomPos;
             // generate room
-            if (RandomBool()) // attach to office
+
+            // Add acceptable rooms here
+            for (int k = 0; k < acceptableRooms.Count; k++)
             {
-                 curRoomPos = RandomRoom((int)officePosition.x, (int)officePosition.y, rooms);
+                List<int[]> acceptablePlacements = new List<int[]>();
+
+                FindProperRoom(acceptableRooms[k][0], acceptableRooms[k][1], ref acceptablePlacements);
+
+                if (acceptablePlacements.Count == 0)               
+                    acceptableRooms.RemoveAt(k);
+                
             }
-            else // attach to last placed room
+
+            if (RandomBool() && acceptableRooms.Contains(new int[] {(int)officePosition.x, (int)officePosition.y })) // attach to office
             {
-                curRoomPos = RandomRoom(rooms[rooms.Count-1][0], rooms[rooms.Count - 1][1], rooms);
+                 curRoomPos = RandomRoom((int)officePosition.x, (int)officePosition.y);
+            }
+            else // attach to a random room that accepts more stuff
+            {
+                int randomRoom = Random.Range(0, acceptableRooms.Count);
+                curRoomPos = RandomRoom(acceptableRooms[randomRoom][0], acceptableRooms[randomRoom][1]);
             }
 
             office[(int)curRoomPos.x, (int)curRoomPos.y] = 1;
 
             // store room's position in prevRoom
-            
-            prevRoom[0] = (int)curRoomPos.x;
-            prevRoom[1] = (int)curRoomPos.y;
+            int[] curRoom = new int[] { (int)curRoomPos.x, (int)curRoomPos.y };
 
-            rooms.Add(prevRoom);
+            rooms.Add(curRoom);
+            acceptableRooms.Add(curRoom);
         }
     }
 
@@ -107,48 +122,34 @@ public class OfficeGenerator : MonoBehaviour
         Debug.Log(printedMessage);
     }
 
-    private Vector2 RandomRoom(int x, int y, List<int[]> prevRooms)
+    private Vector2 RandomRoom(int x, int y)
     {
         //List<int[]> nonCheckedRooms = new List<int[]>();
-        int nextRoomToCheck = prevRooms.Count;
+        //int nextRoomToCheck = accRooms.Count;
 
         List<int[]> acceptablePlacements = new List<int[]>();
 
-        FindProperRoom(x, y, nextRoomToCheck, ref nextRoomToCheck, ref acceptablePlacements, ref prevRooms);
+        FindProperRoom(x, y, ref acceptablePlacements);
 
         // return positions
-        int pos = Random.Range(0, acceptablePlacements.Count - 1);
+        int pos = Random.Range(0, acceptablePlacements.Count);
+
         if (pos < 0) Debug.LogWarning("Pos is negative");
+
         return new Vector2(acceptablePlacements[pos][0], acceptablePlacements[pos][1]);
     }
 
-    private void FindProperRoom(int x, int y, int curNumber, ref int nextRoomToCheck, ref List<int[]> acceptablePlacements, ref List<int[]> rooms)
+    private void FindProperRoom(int x, int y, ref List<int[]> acceptablePlacements)
     {
         // check for acceptable rooms and assign them to the list
         CheckAdjusentRooms(x, y, ref acceptablePlacements);
 
         //if there are no acceptable rooms
-        if (acceptablePlacements.Count == 0)
+        /*if (acceptablePlacements.Count == 0)
         {
-            nextRoomToCheck--;
-
-            if (nextRoomToCheck < 0)
-            {
-                Debug.LogWarning("No acceptable moves");
-                PrintOffice();
-            }
-            else
-            {
-                // recursion
-                FindProperRoom(
-                    rooms[nextRoomToCheck][0],
-                    rooms[nextRoomToCheck][1],
-                    nextRoomToCheck,
-                    ref nextRoomToCheck,
-                    ref acceptablePlacements,
-                    ref rooms);
-            }
-        }
+            Debug.LogWarning("No acceptable moves");
+            PrintOffice();
+        }*/
     }
 
     private void CheckAdjusentRooms(int x, int y, ref List<int[]> acceptablePlacements)
