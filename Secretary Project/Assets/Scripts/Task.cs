@@ -15,6 +15,7 @@ public class Task : Draggable {
     private Deck deck;
 
     private TaskManager TaskMan;
+    private Transform map;
 
     // add player's reference here
     //[SerializeField]
@@ -44,6 +45,9 @@ public class Task : Draggable {
         if (TaskMan == null)
             TaskMan = FindObjectOfType<TaskManager>().GetComponent<TaskManager>();
 
+        if (map == null)
+            map = GameObject.Find("Map").transform;
+
         TaskAction -= DisplayText;
         TaskAction += DisplayText;
 
@@ -72,11 +76,15 @@ public class Task : Draggable {
 
     public void GiveCoworkerInfo(Employee coworker)
     {
-        Transform tempRoom = GameObject.Find("Map").transform.GetChild(0);
-        coworker.GoToRoom(tempRoom);
+        coworker.GoToRoom(RoomToTransform(room));
     }
 
     #endregion
+
+    private Transform RoomToTransform(string room)
+    {      
+        return map.Find(room + " Variant");
+    }
   
     #region TaskDisplay
 

@@ -2598,7 +2598,7 @@ PrefabInstance:
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
       propertyPath: room
-      value: TempTextGre
+      value: Library
       objectReference: {fileID: 0}
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
@@ -3490,7 +3490,7 @@ PrefabInstance:
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}
       propertyPath: room
-      value: TempTextRed
+      value: Office
       objectReference: {fileID: 0}
     - target: {fileID: 114922248632322664, guid: b214408c5d15a2149b8cc7e7f8428a5b,
         type: 3}

@@ -116,6 +116,7 @@ public class OfficeGenerator : MonoBehaviour
                 Vector3.right * spacing * (rooms[i][1] + widthOffset -.25f),
                 officeParent.transform.rotation,
                 officeParent);
+            go.name = roomPrefab.name;
 
         }
     }
