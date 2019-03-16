@@ -99,7 +99,10 @@ public class OfficeGenerator : MonoBehaviour
             Destroy(officeParent.GetChild(i).gameObject);
         
 
-        int spacing = 60;
+        float spacing = 60;
+
+        float heightOffset = GetHeightOffset();
+        float widthOffset = GetWidthOffset();
 
         for (int i = 0; i < rooms.Count; i++)
         {
@@ -109,8 +112,8 @@ public class OfficeGenerator : MonoBehaviour
             GameObject go = Instantiate(
                 roomPrefab,
                 officeParent.transform.position + 
-                Vector3.down * spacing * (rooms[i][0] - maxOfficeLength/2) +
-                Vector3.right * spacing * (rooms[i][1] - maxOfficeLength / 2),
+                Vector3.down * spacing * (rooms[i][0] + heightOffset -.25f) +
+                Vector3.right * spacing * (rooms[i][1] + widthOffset -.25f),
                 officeParent.transform.rotation,
                 officeParent);
 
@@ -134,6 +137,38 @@ public class OfficeGenerator : MonoBehaviour
             printedMessage += officeCode + "\n";
         }
         Debug.Log(printedMessage);
+    }
+    
+    private float GetHeightOffset()
+    {
+        int min = maxOfficeLength;
+        int max = -1;
+
+        for (int i = 0; i < rooms.Count; i++)
+        {
+            if (rooms[i][0] < min)  min = rooms[i][0];
+            else if (rooms[i][0] > max) max = rooms[i][0];
+        }
+
+        float toReturn = -(min + max) / 2;
+
+        return toReturn;
+    }
+
+    private float GetWidthOffset()
+    {
+        int min = maxOfficeLength;
+        int max = -1;
+
+        for (int i = 0; i < rooms.Count; i++)
+        {
+            if (rooms[i][1] < min)  min = rooms[i][1];
+            else if (rooms[i][1] > max) max = rooms[i][1];
+        }
+
+        float toReturn = -(min + max) / 2;
+
+        return toReturn;
     }
 
     private void UpdateAcceptableRooms(ref List<int[]> acceptableRooms)

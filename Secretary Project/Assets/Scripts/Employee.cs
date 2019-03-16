@@ -22,6 +22,9 @@ public class Employee : DropZone
     [SerializeField]
     private Stats myStats;
 
+    [SerializeField]
+    private Transform mapIcon;
+
     void Awake()
     {
         Initialization();
@@ -30,6 +33,9 @@ public class Employee : DropZone
     protected void Initialization() // gonna be used from the inherited class
     {
         OnDropActions = TaskEffect; // when a card is placed on enemy
+
+        if (mapIcon == null)
+            mapIcon = transform.parent.Find("MapIcon");
 
         onPointerEnterActions -= ShowStats;
         onPointerEnterActions += ShowStats;
@@ -51,12 +57,19 @@ public class Employee : DropZone
     // comment this.
     protected IEnumerator ActivateCardEffect(Task task)
     {
-        if (task.TaskAction != null) // fool proof
-            task.TaskAction();  // perform attack
+        task.TaskAction?.Invoke();  // perform Action
+        task.GiveCoworkerInfo(this);
 
         yield return null;
 
         task.ToCompletedTasksPile(); // send the just activated card to discard pile
+    }
+
+    public void GoToRoom(Transform room)
+    {
+        mapIcon.transform.SetParent(room);
+        mapIcon.localPosition = Vector3.zero;
+        mapIcon.gameObject.SetActive(true);
     }
 
     public void ReturnToBase()

@@ -70,6 +70,12 @@ public class Task : Draggable {
         Debug.Log(transform.name + " was moved!");
     }
 
+    public void GiveCoworkerInfo(Employee coworker)
+    {
+        Transform tempRoom = GameObject.Find("Map").transform.GetChild(0);
+        coworker.GoToRoom(tempRoom);
+    }
+
     #endregion
   
     #region TaskDisplay
