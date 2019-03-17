@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TaskGenerator : MonoBehaviour
 {
+    private Transform tasksParent;
+
     [Header("Descriptions")]
     [SerializeField]
     private string[] descriptions;
@@ -21,12 +23,6 @@ public class TaskGenerator : MonoBehaviour
     [SerializeField]
     private string[] details;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        GetAvailableRooms();
-    }
-
     private void GetAvailableRooms()
     {
         OfficeGenerator oG = GetComponent<OfficeGenerator>();
@@ -39,6 +35,13 @@ public class TaskGenerator : MonoBehaviour
             rooms[i] = parts[0];
         }
     }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (tasksParent == null)
+            tasksParent = GameObject.Find("Tasks").transform;
+    } 
 
     public void GenerateTask()
     {

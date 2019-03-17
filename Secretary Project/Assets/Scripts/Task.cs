@@ -11,9 +11,6 @@ public class Task : Draggable {
 
     [Header("References")]
 
-    [SerializeField]
-    private Deck deck;
-
     private GameManager GM;
     [SerializeField]
     private TaskManager TaskMan;
@@ -41,8 +38,8 @@ public class Task : Draggable {
     // gonna be used in the inherited class
     protected void Initialization()
     {
-        if (deck == null)
-            deck = GameObject.Find("Deck").GetComponent<Deck>();
+       // if (deck == null)
+        //deck = GameObject.Find("Deck").GetComponent<Deck>();
 
         if (TaskMan == null)
             TaskMan = FindObjectOfType<TaskManager>().GetComponent<TaskManager>();
@@ -66,9 +63,10 @@ public class Task : Draggable {
 
     public void ToCompletedTasksPile() // send card to discard pile. Currently hard coded
     {
-        deck.mDiscard.Add(gameObject);
-        gameObject.SetActive(false);
-        transform.SetParent(deck.transform.Find("DiscardPile"));
+        //deck.mDiscard.Add(gameObject);
+        Destroy(gameObject);
+        //gameObject.SetActive(false);
+        //transform.SetParent(deck.transform.Find("DiscardPile"));
     }
 
     #region TaskActions
