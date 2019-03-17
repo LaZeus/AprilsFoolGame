@@ -9,8 +9,7 @@ public class OfficeGenerator : MonoBehaviour
     [SerializeField]
     private int[] roomNumberLimit;
 
-    [SerializeField]
-    private GameObject[] possibleRooms;
+    public GameObject[] possibleRooms;
 
     private Transform officeParent;
 
