@@ -149,8 +149,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 637.4, y: 665.6}
-  m_SizeDelta: {x: 531.3, y: 733.93}
+  m_AnchoredPosition: {x: 642.09, y: 665.6}
+  m_SizeDelta: {x: 521.91, y: 733.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &28225262
 MonoBehaviour:
@@ -1376,7 +1376,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 415069586}
+  - component: {fileID: 415069588}
   - component: {fileID: 415069585}
+  - component: {fileID: 415069587}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1396,7 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8e7a324ba5f304baa1ba1bf5fa0afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomNumberLimit: 0400000005000000
+  roomNumberLimit: 0500000008000000
   possibleRooms:
   - {fileID: 4048867244644938703, guid: 20c5a22e97489394bb463d0201d27278, type: 3}
   - {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80, type: 3}
@@ -1416,6 +1418,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &415069587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415069584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b606a58662aa8499db4e401eb1fdd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  descriptions: []
+  persons: []
+  rooms:
+  - Office
+  - Library
+  - Lab
+  - Kitchen
+  details: []
+--- !u!114 &415069588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415069584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4232c0754a6a6ae40b561481a52f42fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksAvailable: 0
 --- !u!1001 &452461316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3718,7 +3753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3869bb8ffacaff34bb1ebca0a302e723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfTank: 2
+  typeOfTank: 4
 --- !u!114 &1358586021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4755,6 +4790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: myStats.habits
       value: Play Vidya
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: typeOfTank
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1674165816227758449, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}

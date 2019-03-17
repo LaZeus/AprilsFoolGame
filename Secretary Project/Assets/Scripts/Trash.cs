@@ -8,6 +8,8 @@ public class Trash : DropZone {
     // add stats here
     // and more stuff
 
+    private GameManager GM;
+
     private TaskManager taskMan;
     private Transform tasks;
 
@@ -25,6 +27,9 @@ public class Trash : DropZone {
 
         if (tasks == null)
             tasks = GameObject.Find("Tasks").transform;
+
+        if (GM == null)
+            GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     protected void TaskEffect(Task task)
