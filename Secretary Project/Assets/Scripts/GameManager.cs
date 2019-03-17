@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private int lives;
+
+    [SerializeField]
     private int tasksAvailable = 0;
 
     private Transform tasksParents;
@@ -22,8 +25,26 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void UpdateAvailableTasks()
+    public void UpdateAvailableTasks()
     {
         tasksAvailable = tasksParents.childCount;
+        CheckIfLost();
+    }
+
+    private void CheckIfLost()
+    {
+        Debug.Log(tasksAvailable);
+        if ( tasksAvailable > 3)
+        {
+            lives--;
+
+            //
+
+            Debug.Log("Remove the extra task");
+
+            //
+            if (lives < 0)
+                Debug.Log("Game Over!");
+        }
     }
 }

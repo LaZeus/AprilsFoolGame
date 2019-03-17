@@ -14,6 +14,8 @@ public class Task : Draggable {
     [SerializeField]
     private Deck deck;
 
+    private GameManager GM;
+    [SerializeField]
     private TaskManager TaskMan;
     private Transform map;
 

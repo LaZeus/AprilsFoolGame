@@ -39,4 +39,9 @@ public class TaskGenerator : MonoBehaviour
             rooms[i] = parts[0];
         }
     }
+
+    public void GenerateTask()
+    {
+
+    }
 }

@@ -40,10 +40,11 @@ public class Trash : DropZone {
     // comment this.
     protected IEnumerator ActivateCardEffect(Task task)
     {
-        if(task.TaskAction != null) // fool proof
-            task.TaskAction();  // perform attack
+        task.TaskAction?.Invoke();  // perform attack
 
         yield return null;
+
+        GM.UpdateAvailableTasks();
 
         task.ToCompletedTasksPile(); // send the just activated card to discard pile
 
