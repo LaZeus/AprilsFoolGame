@@ -9,7 +9,14 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     
     // used for card stuff
-    public enum TaskType {Attack, Escape, All};
+    public enum TaskType
+    {
+        Office,
+        Library,
+        Kitchen,
+        Lab,
+        All
+    };
 
     public delegate void Action();
 
@@ -17,7 +24,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     [Header("Task Specific")]
     [Tooltip("CARD CAN'T BE OF TYPE 'ALL'")]
-    public TaskType mCardType = TaskType.Attack;
+    public TaskType myRoomType = TaskType.Office;
 
     [Header("Task Management")]
     [Tooltip("Allows the user to change the cards order during runtime")]

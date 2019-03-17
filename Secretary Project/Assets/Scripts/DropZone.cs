@@ -35,7 +35,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // store the card's origin parent(i.e. hand or playarea)
         if (task != null)
-            if (typeOfTank == task.mCardType || typeOfTank == Draggable.TaskType.All)
+            if (typeOfTank == task.myRoomType || typeOfTank == Draggable.TaskType.All)
                 task.placeholderParent = transform;
     }
 
@@ -53,7 +53,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // if the card is out of a playable area then set that the card will return to the original position
         if (task != null && task.placeholderParent == transform)
-            if (typeOfTank == task.mCardType || typeOfTank == Draggable.TaskType.All)
+            if (typeOfTank == task.myRoomType || typeOfTank == Draggable.TaskType.All)
                 task.placeholderParent = task.parentToReturnTo;
     }
 
@@ -66,7 +66,13 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // includes the card in the proper layout group(i.e. hand)
         if (task != null)
         {
-            if (typeOfTank == task.mCardType || typeOfTank == Draggable.TaskType.All)
+            bool hasAvailableRooms = false;
+            Room[] mrooms = FindObjectsOfType<Room>();
+            foreach (var room in mrooms)
+                if (room.name == task.room + " Variant" && !room.isOccupied)
+                    hasAvailableRooms = true;
+
+            if ((typeOfTank == task.myRoomType || typeOfTank == Draggable.TaskType.All) && hasAvailableRooms)
             {
                 task.parentToReturnTo = transform;
                 OnDropActions?.Invoke(task);

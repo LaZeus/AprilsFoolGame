@@ -48,6 +48,8 @@ public class Task : Draggable {
         if (map == null)
             map = GameObject.Find("Map").transform;
 
+        room = myRoomType.ToString();
+
         TaskAction -= DisplayText;
         TaskAction += DisplayText;
 
@@ -76,14 +78,26 @@ public class Task : Draggable {
 
     public void GiveCoworkerInfo(Employee coworker)
     {
-        coworker.GoToRoom(RoomToTransform(room));
+        coworker.GoToRoom(RoomToTransform());       
     }
 
     #endregion
 
-    private Transform RoomToTransform(string room)
-    {      
-        return map.Find(room + " Variant");
+    private Transform RoomToTransform()
+    {
+        List<Transform> sameRooms = new List<Transform>();
+
+        for (int i = 0; i < map.childCount; i++)
+        {
+            Transform curRoom = map.GetChild(i);
+            if (curRoom.name == room + " Variant" && !curRoom.GetComponent<Room>().isOccupied)
+                sameRooms.Add(map.GetChild(i));
+        }
+
+        Transform returnedRoom = sameRooms[Random.Range(0, sameRooms.Count)];
+        returnedRoom.GetComponent<Room>().isOccupied = true;
+
+        return returnedRoom;
     }
   
     #region TaskDisplay

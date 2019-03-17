@@ -56,7 +56,7 @@ public class OfficeGenerator : MonoBehaviour
         office[(int)officePosition.x, (int)officePosition.y] = 0;
 
         // Place adjacent
-        int numberOfOfficeRooms = Random.Range(roomNumberLimit[0], roomNumberLimit[1]) - 1;
+        int numberOfOfficeRooms = Random.Range(roomNumberLimit[0]-1, roomNumberLimit[1]);
 
         //List<int[]> rooms = new List<int[]>();
         List<int[]> acceptableRooms = new List<int[]>();
@@ -83,7 +83,7 @@ public class OfficeGenerator : MonoBehaviour
                 curRoomPos = RandomRoom(acceptableRooms[randomRoom][0], acceptableRooms[randomRoom][1]);
             }
 
-            office[(int)curRoomPos.x, (int)curRoomPos.y] = 1;
+            office[(int)curRoomPos.x, (int)curRoomPos.y] = Random.Range(1,possibleRooms.Length);
 
             // store room's position in prevRoom
             int[] curRoom = new int[] { (int)curRoomPos.x, (int)curRoomPos.y };
@@ -99,7 +99,7 @@ public class OfficeGenerator : MonoBehaviour
             Destroy(officeParent.GetChild(i).gameObject);
         
 
-        float spacing = 60;
+        float spacing = 58;
 
         float heightOffset = GetHeightOffset();
         float widthOffset = GetWidthOffset();
@@ -113,7 +113,7 @@ public class OfficeGenerator : MonoBehaviour
                 roomPrefab,
                 officeParent.transform.position + 
                 Vector3.down * spacing * (rooms[i][0] + heightOffset -.25f) +
-                Vector3.right * spacing * (rooms[i][1] + widthOffset -.25f),
+                Vector3.right * spacing * (rooms[i][1] + widthOffset -.375f),
                 officeParent.transform.rotation,
                 officeParent);
             go.name = roomPrefab.name;
