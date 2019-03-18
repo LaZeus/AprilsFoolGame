@@ -12,39 +12,46 @@ public class GameManager : MonoBehaviour
 
     private Transform tasksParents;
 
+    private TaskGenerator taskGen;
+
     // Start is called before the first frame update
     void Start()
     {
         if (tasksParents == null)
             tasksParents = GameObject.Find("Tasks").transform;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (taskGen == null)
+            taskGen = GetComponent<TaskGenerator>();
     }
 
     public void UpdateAvailableTasks()
     {
-        tasksAvailable = tasksParents.childCount;
-        CheckIfLost();
+        tasksAvailable = tasksParents.childCount;       
+    }
+
+    public void AddTask()
+    {
+        UpdateAvailableTasks();
+
+        if (tasksAvailable >= 3)
+        {
+            Debug.Log("Lose life here");
+            CheckIfLost();
+        }
+        else taskGen.GenerateTask();
     }
 
     private void CheckIfLost()
     {
-        Debug.Log(tasksAvailable);
-        if ( tasksAvailable > 3)
-        {
-            lives--;
+        lives--;
 
-            //
+        //
 
-            Debug.Log("Remove the extra task");
+        Debug.Log("Lost Life");
 
-            //
-            if (lives < 0)
-                Debug.Log("Game Over!");
-        }
+        //
+        if (lives < 0)
+            Debug.Log("Game Over!");
+
     }
 }

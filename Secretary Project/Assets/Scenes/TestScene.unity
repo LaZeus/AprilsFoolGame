@@ -1467,14 +1467,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b606a58662aa8499db4e401eb1fdd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  descriptions: []
-  persons: []
+  task: {fileID: 1328555465688046, guid: b214408c5d15a2149b8cc7e7f8428a5b, type: 3}
+  descriptions:
+  - La
+  - Lo
+  - Ld
+  - Lre
+  - fedf
+  persons:
+  - s
+  - d
   rooms:
   - Office
   - Library
   - Lab
   - Kitchen
-  details: []
+  details:
+  - sa
+  - dsa
+  - dds
 --- !u!114 &415069588
 MonoBehaviour:
   m_ObjectHideFlags: 0

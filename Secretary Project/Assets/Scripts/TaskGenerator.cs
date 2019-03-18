@@ -6,6 +6,9 @@ public class TaskGenerator : MonoBehaviour
 {
     private Transform tasksParent;
 
+    [SerializeField]
+    private GameObject task;
+
     [Header("Descriptions")]
     [SerializeField]
     private string[] descriptions;
@@ -45,6 +48,31 @@ public class TaskGenerator : MonoBehaviour
 
     public void GenerateTask()
     {
+        GameObject curTask = Instantiate(
+            task,
+            tasksParent.transform.position,
+            tasksParent.rotation,
+            tasksParent);
 
+        curTask.name = task.name;
+        Task taskDetails = curTask.GetComponent<Task>();
+
+        // description
+        taskDetails.description = ReturnRandomArrayElement(descriptions);
+        // person
+        taskDetails.person = ReturnRandomArrayElement(persons);
+        // room
+        taskDetails.room = ReturnRandomArrayElement(rooms);
+        // details
+        taskDetails.details = ReturnRandomArrayElement(details);
+
+        if (tasksParent.childCount == 1)
+            taskDetails.SendDataToTaskManager();
+
+    }
+
+    private string ReturnRandomArrayElement(string[] pool)
+    {
+        return pool[Random.Range(0,pool.Length)];
     }
 }

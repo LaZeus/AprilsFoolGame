@@ -36,7 +36,7 @@ public class Task : Draggable {
     }
 
     // gonna be used in the inherited class
-    protected void Initialization()
+    public void Initialization()
     {
        // if (deck == null)
         //deck = GameObject.Find("Deck").GetComponent<Deck>();
