@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Employee : DropZone
@@ -35,6 +36,8 @@ public class Employee : DropZone
 
         if (mapIcon == null)
             mapIcon = transform.parent.Find("MapIcon");
+
+        mapIcon.GetComponent<Image>().color = GetComponent<Image>().color;
 
         onPointerEnterActions -= ShowStats;
         onPointerEnterActions += ShowStats;
