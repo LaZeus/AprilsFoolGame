@@ -33,7 +33,7 @@ public class OfficeGenerator : MonoBehaviour
         InitializeOffice();
         GenerateOffice();
         InstantiateOffice();
-        PrintOffice();
+        //PrintOffice();
     }
 
     private void InitializeOffice()

@@ -70,8 +70,8 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             Room[] mrooms = FindObjectsOfType<Room>();
             foreach (var room in mrooms)
             {
-                string[] roomText = task.room.Split(' ');
-                if (room.name == roomText[1] + " Variant" && !room.isOccupied)
+                //string[] roomText = task.room.Split(' ');
+                if (room.name == task.room + " Variant" && !room.isOccupied)
                     hasAvailableRooms = true;
             }
 

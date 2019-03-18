@@ -76,11 +76,11 @@ public class TaskGenerator : MonoBehaviour
             // description
             taskDetails.description = ReturnRandomArrayElement(descriptions);
             // person
-            taskDetails.person = "To: " + ReturnRandomArrayElement(coworkers);
+            taskDetails.person = ReturnRandomArrayElement(coworkers);
             // room
-            taskDetails.room = "Room: " + ReturnRandomArrayElement(rooms);
+            taskDetails.room = ReturnRandomArrayElement(rooms);
             // details
-            taskDetails.details = "Details \n" + ReturnRandomArrayElement(details);
+            taskDetails.details = ReturnRandomArrayElement(details);
 
             taskDetails.timer = Random.Range(timerLimits.x, timerLimits.y);
 

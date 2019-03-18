@@ -40,9 +40,6 @@ public class Task : Draggable {
     // gonna be used in the inherited class
     public void Initialization()
     {
-       // if (deck == null)
-        //deck = GameObject.Find("Deck").GetComponent<Deck>();
-
         if (TaskMan == null)
             TaskMan = FindObjectOfType<TaskManager>().GetComponent<TaskManager>();
 
@@ -80,9 +77,10 @@ public class Task : Draggable {
 
     public void GiveCoworkerInfo(Employee coworker)
     {
-        if (coworker.name == person)
+        if (coworker.myStats.name == person)
             timer /= 2;
 
+        Debug.Log("Timer is " + timer);
         coworker.GoToRoom(RoomToTransform(), timer);       
     }
 
@@ -95,8 +93,7 @@ public class Task : Draggable {
         for (int i = 0; i < map.childCount; i++)
         {
             Transform curRoom = map.GetChild(i);
-            string[] roomText = room.Split(' ');
-            if (curRoom.name == roomText[1] + " Variant" && !curRoom.GetComponent<Room>().isOccupied)
+            if (curRoom.name == room + " Variant" && !curRoom.GetComponent<Room>().isOccupied)
                 sameRooms.Add(map.GetChild(i));
         }
 

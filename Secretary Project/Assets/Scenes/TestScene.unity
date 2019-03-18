@@ -1437,6 +1437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   task: {fileID: 1328555465688046, guid: b214408c5d15a2149b8cc7e7f8428a5b, type: 3}
+  timerLimits: {x: 6, y: 10}
   descriptions:
   - La
   - Lo
@@ -1470,7 +1471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4232c0754a6a6ae40b561481a52f42fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 0
+  lives: 2
   tasksAvailable: 0
 --- !u!224 &470398669 stripped
 RectTransform:

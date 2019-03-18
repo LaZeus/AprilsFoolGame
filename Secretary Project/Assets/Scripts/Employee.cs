@@ -37,6 +37,8 @@ public class Employee : DropZone
         if (mapIcon == null)
             mapIcon = transform.parent.Find("MapIcon");
 
+        transform.parent.Find("NameText").GetComponent<TextMeshProUGUI>().text = myStats.name;
+
         mapIcon.GetComponent<Image>().color = GetComponent<Image>().color;
 
         onPointerEnterActions -= ShowStats;

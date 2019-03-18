@@ -26,8 +26,8 @@ public class TaskManager : MonoBehaviour
     public void UpdateDescription(string desc, string pers, string ro, string det)
     {
         description.text = desc;
-        person.text = pers;
-        room.text = ro;
-        details.text = det;
+        person.text = "To: " + pers;
+        room.text = "Room: " + ro;
+        details.text ="Details \n" + det;
     }
 }
