@@ -12,7 +12,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // used to check card stuff
     [Header("Card Group Aspects")]
     [Tooltip("Accepts cards of this type")]
-    public Draggable.TaskType typeOfTank = Draggable.TaskType.All;
+    public Draggable.TaskType typeOfTask = Draggable.TaskType.All;
 
     // when card is dropped actions
     protected Action onPointerEnterActions;
@@ -35,7 +35,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // store the card's origin parent(i.e. hand or playarea)
         if (task != null)
-            if (typeOfTank == task.myRoomType || typeOfTank == Draggable.TaskType.All)
+            if (typeOfTask == task.myRoomType || typeOfTask == Draggable.TaskType.All)
                 task.placeholderParent = transform;
     }
 
@@ -53,7 +53,7 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         // if the card is out of a playable area then set that the card will return to the original position
         if (task != null && task.placeholderParent == transform)
-            if (typeOfTank == task.myRoomType || typeOfTank == Draggable.TaskType.All)
+            if (typeOfTask == task.myRoomType || typeOfTask == Draggable.TaskType.All)
                 task.placeholderParent = task.parentToReturnTo;
     }
 
@@ -69,10 +69,13 @@ public class DropZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             bool hasAvailableRooms = false;
             Room[] mrooms = FindObjectsOfType<Room>();
             foreach (var room in mrooms)
-                if (room.name == task.room + " Variant" && !room.isOccupied)
+            {
+                string[] roomText = task.room.Split(' ');
+                if (room.name == roomText[1] + " Variant" && !room.isOccupied)
                     hasAvailableRooms = true;
+            }
 
-            if ((typeOfTank == task.myRoomType || typeOfTank == Draggable.TaskType.All) && hasAvailableRooms)
+            if ((typeOfTask == task.myRoomType || typeOfTask == Draggable.TaskType.All) && hasAvailableRooms)
             {
                 task.parentToReturnTo = transform;
                 OnDropActions?.Invoke(task);

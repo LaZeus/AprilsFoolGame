@@ -19,8 +19,7 @@ public class Employee : DropZone
         public string habits;
     }
 
-    [SerializeField]
-    private Stats myStats;
+    public Stats myStats;
 
     [SerializeField]
     private Transform mapIcon;

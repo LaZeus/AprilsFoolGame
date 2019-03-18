@@ -15,7 +15,8 @@ public class TaskGenerator : MonoBehaviour
 
     [Header("Coworkers")]
     [SerializeField]
-    private string[] persons;
+    [ContextMenuItem("Get Coworkers", "GetAvailableCoworkers")]
+    private string[] coworkers;
 
     [Header("Rooms")]
     [SerializeField]
@@ -39,36 +40,48 @@ public class TaskGenerator : MonoBehaviour
         }
     }
 
+    private void GetAvailableCoworkers()
+    {
+        Transform coworkerParent = GameObject.Find("Employees").transform;
+
+        coworkers = new string[coworkerParent.childCount];
+
+        for (int i = 0; i < coworkerParent.childCount; i++)
+            coworkers[i] = coworkerParent.GetChild(i).GetComponentInChildren<Employee>().myStats.name;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         if (tasksParent == null)
-            tasksParent = GameObject.Find("Tasks").transform;
-    } 
+            tasksParent = GameObject.Find("Tasks").transform;      
+    }
 
     public void GenerateTask()
     {
-        GameObject curTask = Instantiate(
-            task,
-            tasksParent.transform.position,
-            tasksParent.rotation,
-            tasksParent);
+        if (tasksParent.childCount < 3)
+        {
+            GameObject curTask = Instantiate(
+                task,
+                tasksParent.transform.position,
+                tasksParent.rotation,
+                tasksParent);
 
-        curTask.name = task.name;
-        Task taskDetails = curTask.GetComponent<Task>();
+            curTask.name = task.name;
+            Task taskDetails = curTask.GetComponent<Task>();
 
-        // description
-        taskDetails.description = ReturnRandomArrayElement(descriptions);
-        // person
-        taskDetails.person = ReturnRandomArrayElement(persons);
-        // room
-        taskDetails.room = ReturnRandomArrayElement(rooms);
-        // details
-        taskDetails.details = ReturnRandomArrayElement(details);
+            // description
+            taskDetails.description = ReturnRandomArrayElement(descriptions);
+            // person
+            taskDetails.person = "To: " + ReturnRandomArrayElement(coworkers);
+            // room
+            taskDetails.room = "Room: " + ReturnRandomArrayElement(rooms);
+            // details
+            taskDetails.details = "Details \n" + ReturnRandomArrayElement(details);
 
-        if (tasksParent.childCount == 1)
-            taskDetails.SendDataToTaskManager();
-
+            if (tasksParent.childCount == 1)
+                taskDetails.SendDataToTaskManager();
+        }
     }
 
     private string ReturnRandomArrayElement(string[] pool)

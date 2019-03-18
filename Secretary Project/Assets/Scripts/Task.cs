@@ -47,7 +47,7 @@ public class Task : Draggable {
         if (map == null)
             map = GameObject.Find("Map").transform;
 
-        room = myRoomType.ToString();
+        //room = myRoomType.ToString();
 
         TaskAction -= DisplayText;
         TaskAction += DisplayText;
@@ -58,7 +58,7 @@ public class Task : Draggable {
 
     private void Start()
     {
-        //UpdateCard();
+        
     }
 
     public void ToCompletedTasksPile() // send card to discard pile. Currently hard coded
@@ -90,7 +90,8 @@ public class Task : Draggable {
         for (int i = 0; i < map.childCount; i++)
         {
             Transform curRoom = map.GetChild(i);
-            if (curRoom.name == room + " Variant" && !curRoom.GetComponent<Room>().isOccupied)
+            string[] roomText = room.Split(' ');
+            if (curRoom.name == roomText[1] + " Variant" && !curRoom.GetComponent<Room>().isOccupied)
                 sameRooms.Add(map.GetChild(i));
         }
 
