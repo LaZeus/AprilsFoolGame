@@ -9,6 +9,9 @@ public class TaskGenerator : MonoBehaviour
     [SerializeField]
     private GameObject task;
 
+    [SerializeField]
+    private Vector2 timerLimits;
+
     [Header("Descriptions")]
     [SerializeField]
     private string[] descriptions;
@@ -78,6 +81,8 @@ public class TaskGenerator : MonoBehaviour
             taskDetails.room = "Room: " + ReturnRandomArrayElement(rooms);
             // details
             taskDetails.details = "Details \n" + ReturnRandomArrayElement(details);
+
+            taskDetails.timer = Random.Range(timerLimits.x, timerLimits.y);
 
             if (tasksParent.childCount == 1)
                 taskDetails.SendDataToTaskManager();

@@ -27,6 +27,8 @@ public class Task : Draggable {
     public string room;
     public string details;
 
+    public float timer;
+
     // add more stuff here
     // and more comments too
 
@@ -78,7 +80,10 @@ public class Task : Draggable {
 
     public void GiveCoworkerInfo(Employee coworker)
     {
-        coworker.GoToRoom(RoomToTransform());       
+        if (coworker.name == person)
+            timer /= 2;
+
+        coworker.GoToRoom(RoomToTransform(), timer);       
     }
 
     #endregion

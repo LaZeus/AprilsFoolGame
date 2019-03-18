@@ -67,11 +67,22 @@ public class Employee : DropZone
         task.ToCompletedTasksPile(); // send the just activated card to discard pile
     }
 
-    public void GoToRoom(Transform room)
+    public void GoToRoom(Transform room, float timeDelay)
+    {
+        StartCoroutine(WorkTimer(room, timeDelay));
+    }
+
+    private IEnumerator WorkTimer(Transform room,float delay)
     {
         mapIcon.transform.SetParent(room);
         mapIcon.localPosition = Vector3.zero;
         mapIcon.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(delay);
+        
+        mapIcon.transform.SetParent(transform);
+        mapIcon.gameObject.SetActive(false);
+        room.transform.GetComponent<Room>().isOccupied = false;
     }
 
     public void ReturnToBase()
