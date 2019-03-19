@@ -37,7 +37,7 @@ public class Employee : DropZone
         if (mapIcon == null)
             mapIcon = transform.parent.Find("MapIcon");
 
-        transform.parent.Find("NameText").GetComponent<TextMeshProUGUI>().text = myStats.name;
+        transform.parent.Find("NameField").GetComponentInChildren<TextMeshProUGUI>().text = myStats.name;
 
         mapIcon.GetComponent<Image>().color = GetComponent<Image>().color;
 
@@ -47,10 +47,11 @@ public class Employee : DropZone
         onPointerExitActions -= HideStats;
         onPointerExitActions += HideStats;
 
-        statsPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Name: " + myStats.name;
-        statsPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Gender: " + myStats.gender;
-        statsPanel.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Age: " + myStats.age;
-        statsPanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Habits: " + myStats.habits;
+        Transform statsText = statsPanel.transform.Find("StatsText");
+        statsText.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Name: " + myStats.name;
+        statsText.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Gender: " + myStats.gender;
+        statsText.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Age: " + myStats.age;
+        statsText.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Habits: " + myStats.habits;
     }
 
     protected void TaskEffect(Task task)
