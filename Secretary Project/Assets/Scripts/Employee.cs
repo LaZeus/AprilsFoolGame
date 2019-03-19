@@ -25,6 +25,10 @@ public class Employee : DropZone
     [SerializeField]
     private Transform mapIcon;
 
+    private ScoreManager scoreMan;
+
+    private int jobDone = 0; 
+
     void Awake()
     {
         Initialization();
@@ -36,6 +40,9 @@ public class Employee : DropZone
 
         if (mapIcon == null)
             mapIcon = transform.parent.Find("MapIcon");
+
+        if (scoreMan == null)
+            scoreMan = FindObjectOfType<ScoreManager>();
 
         transform.parent.Find("NameField").GetComponentInChildren<TextMeshProUGUI>().text = myStats.name;
 
@@ -77,15 +84,21 @@ public class Employee : DropZone
 
     private IEnumerator WorkTimer(Transform room,float delay)
     {
+        int curJob = jobDone;
         mapIcon.transform.SetParent(room);
         mapIcon.localPosition = Vector3.zero;
         mapIcon.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(delay);
-        
-        mapIcon.transform.SetParent(transform);
-        mapIcon.gameObject.SetActive(false);
-        room.transform.GetComponent<Room>().isOccupied = false;
+
+        if (curJob == jobDone)
+        {
+            jobDone++;
+            mapIcon.transform.SetParent(transform);
+            mapIcon.gameObject.SetActive(false);
+            room.transform.GetComponent<Room>().isOccupied = false;
+            scoreMan.TaskCompleted();
+        }
     }
 
     public void ReturnToBase()

@@ -22,4 +22,9 @@ public class ScoreManager : MonoBehaviour
         score++;
         scoreText.text = "Task Completed: " + score;
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
 }
