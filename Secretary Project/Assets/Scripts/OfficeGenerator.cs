@@ -97,11 +97,13 @@ public class OfficeGenerator : MonoBehaviour
         for (int i = 0; i < officeParent.childCount; i++)      
             Destroy(officeParent.GetChild(i).gameObject);
         
+        // 1000 width -> 0.156f
+        // 500 width -> 0.312f
 
-        float spacing = 58;
+        float spacing = 0.156f * officeParent.GetComponent<RectTransform>().rect.width;
 
-        float heightOffset = GetHeightOffset();
-        float widthOffset = GetWidthOffset();
+        float heightOffset = GetHeightOffset() - .25f;
+        float widthOffset = GetWidthOffset() - .375f;
 
         for (int i = 0; i < rooms.Count; i++)
         {
@@ -109,14 +111,15 @@ public class OfficeGenerator : MonoBehaviour
             GameObject roomPrefab = possibleRooms[office[rooms[i][0], rooms[i][1]]];
 
             GameObject go = Instantiate(
-                roomPrefab,
-                officeParent.transform.position + 
-                Vector3.down * spacing * (rooms[i][0] + heightOffset -.25f) +
-                Vector3.right * spacing * (rooms[i][1] + widthOffset -.375f),
-                officeParent.transform.rotation,
-                officeParent);
-            go.name = roomPrefab.name;
+                roomPrefab);
 
+            go.transform.SetParent(officeParent, false);
+
+            go.GetComponent<RectTransform>().localPosition = 
+                Vector3.down * spacing * (rooms[i][0] + heightOffset) +
+                 Vector3.right * spacing * (rooms[i][1] + widthOffset);
+
+            go.name = roomPrefab.name;
         }
     }
 
