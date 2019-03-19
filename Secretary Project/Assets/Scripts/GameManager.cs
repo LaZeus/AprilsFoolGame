@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     private TaskGenerator taskGen;
 
+    private GameObject gameOverPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,9 @@ public class GameManager : MonoBehaviour
 
         if (taskGen == null)
             taskGen = GetComponent<TaskGenerator>();
+
+        if (gameOverPanel == null)
+            gameOverPanel = GameObject.Find("GameOverPanel");
     }
 
     public void UpdateAvailableTasks()
@@ -51,7 +56,9 @@ public class GameManager : MonoBehaviour
 
         //
         if (lives < 0)
-            Debug.Log("Game Over!");
+            if (gameOverPanel.activeInHierarchy == false)
+                gameOverPanel.SetActive(true);
+            
 
     }
 }

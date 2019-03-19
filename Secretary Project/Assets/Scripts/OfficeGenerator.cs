@@ -60,6 +60,11 @@ public class OfficeGenerator : MonoBehaviour
         //List<int[]> rooms = new List<int[]>();
         List<int[]> acceptableRooms = new List<int[]>();
 
+        List<int> mustHaveRooms = new List<int>();
+        for (int i = 1; i < possibleRooms.Length; i++)
+            mustHaveRooms.Add(i);
+
+
         int[] officeRoom = new int[] { (int)officePosition.x, (int)officePosition.y };
 
         rooms.Add(officeRoom);
@@ -82,7 +87,18 @@ public class OfficeGenerator : MonoBehaviour
                 curRoomPos = RandomRoom(acceptableRooms[randomRoom][0], acceptableRooms[randomRoom][1]);
             }
 
-            office[(int)curRoomPos.x, (int)curRoomPos.y] = Random.Range(1,possibleRooms.Length);
+            //
+            int cRoom;
+            if (mustHaveRooms.Count == 0)
+                cRoom = Random.Range(1,possibleRooms.Length);
+            else
+            {
+                cRoom = mustHaveRooms[Random.Range(0, mustHaveRooms.Count)];
+                mustHaveRooms.Remove(cRoom);
+            }
+
+            office[(int)curRoomPos.x, (int)curRoomPos.y] = cRoom;
+            //
 
             // store room's position in prevRoom
             int[] curRoom = new int[] { (int)curRoomPos.x, (int)curRoomPos.y };
