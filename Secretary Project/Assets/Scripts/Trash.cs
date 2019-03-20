@@ -11,7 +11,7 @@ public class Trash : DropZone {
     private GameManager GM;
 
     private TaskManager taskMan;
-    private Transform tasks;
+    private Transform tasksParent;
 
 	void Awake ()
     {
@@ -25,8 +25,8 @@ public class Trash : DropZone {
         if (taskMan == null)
             taskMan = FindObjectOfType<TaskManager>().GetComponent<TaskManager>();
 
-        if (tasks == null)
-            tasks = GameObject.Find("Tasks").transform;
+        if (tasksParent == null)
+            tasksParent = GameObject.Find("Tasks").transform;
 
         if (GM == null)
             GM = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -48,8 +48,8 @@ public class Trash : DropZone {
 
         task.ToCompletedTasksPile(); // send the just activated card to discard pile
 
-        if (tasks.childCount > 0)
-            tasks.GetChild(0).GetComponent<Task>().SendDataToTaskManager();
+        if (tasksParent.childCount > 0)
+            tasksParent.GetChild(0).GetComponent<Task>().SendDataToTaskManager();
         else
             taskMan.UpdateDescription("---", " ---", " ---", " ---");
     }

@@ -73,6 +73,7 @@ public class Task : Draggable {
     private void DisplayText() 
     {
         Debug.Log(transform.name + " was moved!");
+        TaskMan.DisplayNewTask();
     }
 
     public void GiveCoworkerInfo(Employee coworker)
@@ -109,31 +110,6 @@ public class Task : Draggable {
     {
         TaskMan.UpdateDescription(description, person, room, details);
     }
-
-    /*private void UpdateCardDescription()
-    {      
-        string text = ""; // description placeholder
-
-        for (int i = 0; i < description.Length; i++) // adds all elements of the array to the description
-        {
-            string addString = ""; // current array string
-
-            switch (description[i]) // checks for variable keywords and adds the proper stat instead
-            {
-                case "damage_STAT":
-                    addString = title;
-                    break;
-                default:
-                    addString = description[i];
-                    break;
-            }
-
-            text += addString + " ";                     
-        }
-
-        //cardDescriptionUI.text = text;
-    }*/
-
     #endregion
 
 }

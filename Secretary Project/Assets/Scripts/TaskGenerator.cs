@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TaskGenerator : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class TaskGenerator : MonoBehaviour
     [SerializeField]
     [ContextMenuItem("Get Coworkers", "GetAvailableCoworkers")]
     private string[] coworkers;
+
+    [SerializeField]
+    private Color[] coworkerColors;
 
     [Header("Rooms")]
     [SerializeField]
@@ -48,9 +52,13 @@ public class TaskGenerator : MonoBehaviour
         Transform coworkerParent = GameObject.Find("Employees").transform;
 
         coworkers = new string[coworkerParent.childCount];
+        coworkerColors = new Color[coworkerParent.childCount];
 
         for (int i = 0; i < coworkerParent.childCount; i++)
+        {
             coworkers[i] = coworkerParent.GetChild(i).GetComponentInChildren<Employee>().myStats.name;
+            coworkerColors[i] = coworkerParent.GetChild(i).GetChild(0).GetComponent<Image>().color;
+        }
     }
 
     // Start is called before the first frame update
@@ -71,16 +79,21 @@ public class TaskGenerator : MonoBehaviour
                 tasksParent);
 
             curTask.name = task.name;
+
+            
+
             Task taskDetails = curTask.GetComponent<Task>();
 
             // description
-            taskDetails.description = ReturnRandomArrayElement(descriptions);
+            taskDetails.description = descriptions[ReturnRandomIndexFromArray(descriptions)];
             // person
-            taskDetails.person = ReturnRandomArrayElement(coworkers);
+            int curPerson = ReturnRandomIndexFromArray(coworkers);
+            taskDetails.person = coworkers[curPerson];
+            curTask.GetComponent<Image>().color = coworkerColors[curPerson];
             // room
-            taskDetails.room = ReturnRandomArrayElement(rooms);
+            taskDetails.room = rooms[ReturnRandomIndexFromArray(rooms)];
             // details
-            taskDetails.details = ReturnRandomArrayElement(details);
+            taskDetails.details = details[ReturnRandomIndexFromArray(details)];
 
             taskDetails.timer = Random.Range(timerLimits.x, timerLimits.y);
 
@@ -89,8 +102,8 @@ public class TaskGenerator : MonoBehaviour
         }
     }
 
-    private string ReturnRandomArrayElement(string[] pool)
+    private int ReturnRandomIndexFromArray(string[] pool)
     {
-        return pool[Random.Range(0,pool.Length)];
+        return Random.Range(0,pool.Length);
     }
 }
