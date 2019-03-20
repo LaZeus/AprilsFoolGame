@@ -1927,7 +1927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8e7a324ba5f304baa1ba1bf5fa0afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomNumberLimit: 0500000008000000
+  roomNumberLimit: 0600000008000000
   possibleRooms:
   - {fileID: 4048867244644938703, guid: 20c5a22e97489394bb463d0201d27278, type: 3}
   - {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80, type: 3}
@@ -1968,8 +1968,8 @@ MonoBehaviour:
   - The governor needs help
   - Mail to Ergand factory
   - Call the IT guy.
-  - The AI ordered 10 TVs
-  - The company needs more followers
+  - The AI is bored.
+  - Clean the kitchen
   - The chemicals exploded
   coworkers:
   - Dimitris
@@ -1977,6 +1977,12 @@ MonoBehaviour:
   - Terry
   - Clink
   - Fury
+  coworkerColors:
+  - {r: 0.7921569, g: 0.30980396, b: 0.31955197, a: 1}
+  - {r: 0.37093437, g: 0.30980396, b: 0.7921569, a: 1}
+  - {r: 0.30980396, g: 0.7921569, b: 0.7203958, a: 1}
+  - {r: 0.425135, g: 0.7921569, b: 0.30980396, a: 1}
+  - {r: 0.7921569, g: 0.58448935, b: 0.30980396, a: 1}
   rooms:
   - Office
   - Library
@@ -2277,8 +2283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 297.2}
-  m_SizeDelta: {x: 485.8, y: 139.6}
+  m_AnchoredPosition: {x: 0, y: 254.4}
+  m_SizeDelta: {x: 485.8, y: 139.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &669528975
 MonoBehaviour:
