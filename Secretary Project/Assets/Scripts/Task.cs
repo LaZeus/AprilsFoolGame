@@ -107,7 +107,7 @@ public class Task : Draggable {
 
     public void SendDataToTaskManager()
     {
-        TaskMan.UpdateDescription(description, person, room, description);
+        TaskMan.UpdateDescription(description, person, room, details);
     }
 
     /*private void UpdateCardDescription()
