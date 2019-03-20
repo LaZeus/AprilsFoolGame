@@ -20,7 +20,7 @@ public class TaskManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateDescription("---", " ---", " ---", " ---");
     }
 
     public void UpdateDescription(string desc, string pers, string ro, string det)

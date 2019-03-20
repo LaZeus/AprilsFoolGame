@@ -1933,6 +1933,7 @@ MonoBehaviour:
   - {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80, type: 3}
   - {fileID: 8634828463777884337, guid: 7e24ed0db021e324b9afd41d324f64db, type: 3}
   - {fileID: 4233883889892898888, guid: 48e2c76a6a4a2f74391d2e5872c1c4f2, type: 3}
+  - {fileID: 2058028647016758898, guid: b1d969f8ee6ab6843a56f8da4eae5b73, type: 3}
 --- !u!4 &415069586
 Transform:
   m_ObjectHideFlags: 0
@@ -1962,11 +1963,14 @@ MonoBehaviour:
   task: {fileID: 1328555465688046, guid: b214408c5d15a2149b8cc7e7f8428a5b, type: 3}
   timerLimits: {x: 6, y: 10}
   descriptions:
-  - La
-  - Lo
-  - Ld
-  - Lre
-  - fedf
+  - Do a depressing task
+  - Bath the Buffalo
+  - The governor needs help
+  - Mail to Ergand factory
+  - Call the IT guy.
+  - The AI ordered 10 TVs
+  - The company needs more followers
+  - The chemicals exploded
   coworkers:
   - Dimitris
   - Eliot
@@ -1978,10 +1982,24 @@ MonoBehaviour:
   - Library
   - Lab
   - Kitchen
+  - Toilet
   details:
-  - sa
-  - dsa
-  - dds
+  - The D button must be pressed.
+  - The bus is full.
+  - Crap. Crap everywhere.
+  - Jack hit the road.
+  - Urgent.
+  - Kasper pluged in his headphones.
+  - Andrew likes SlackUnderflow.
+  - It nevers goes away.
+  - The books are asleep.
+  - Who let the cat in?
+  - The books are asleep.
+  - Forgot how to eat.
+  - Yazmin has an addiction.
+  - Forgot how to eat.
+  - The chicken laid eggs.
+  - Jack ate a buritto.
 --- !u!114 &415069588
 MonoBehaviour:
   m_ObjectHideFlags: 0

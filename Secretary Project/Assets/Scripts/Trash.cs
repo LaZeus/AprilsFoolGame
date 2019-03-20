@@ -51,6 +51,6 @@ public class Trash : DropZone {
         if (tasks.childCount > 0)
             tasks.GetChild(0).GetComponent<Task>().SendDataToTaskManager();
         else
-            taskMan.UpdateDescription("","","","");
+            taskMan.UpdateDescription("---", " ---", " ---", " ---");
     }
 }
