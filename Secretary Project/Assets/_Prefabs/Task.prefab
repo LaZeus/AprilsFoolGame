@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 114562491975887990}
   - component: {fileID: 225046550536978292}
   - component: {fileID: 114922248632322664}
+  - component: {fileID: 3175248103283550417}
   m_Layer: 5
   m_Name: Task
   m_TagString: Untagged
@@ -134,6 +135,19 @@ MonoBehaviour:
   person: TempText
   room: TempText
   details: TempText
+  timer: 0
+--- !u!114 &3175248103283550417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328555465688046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9adc197cbbc6d4d4caa78bfdd29fd2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1544944431109184
 GameObject:
   m_ObjectHideFlags: 0
