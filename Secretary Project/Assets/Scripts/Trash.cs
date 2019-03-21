@@ -44,7 +44,7 @@ public class Trash : DropZone {
 
         yield return null;
 
-        GM.UpdateAvailableTasks();
+        GM.TaskToTrash();
 
         task.ToCompletedTasksPile(); // send the just activated card to discard pile
 

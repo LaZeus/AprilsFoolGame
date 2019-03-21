@@ -11,7 +11,7 @@ public class TaskDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         // add glow effect on Card
 
-        if (eventData.pointerEnter == null)
+        if (eventData.pointerEnter == null || eventData.pointerDrag != null)
         {
             Debug.Log("returned");
             return;
@@ -20,10 +20,8 @@ public class TaskDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         task = eventData.pointerEnter.GetComponent<Task>();
 
         if (task != null)
-        {
-            Debug.Log("Show me the fricking stats");
             task.SendDataToTaskManager();
-        }
+        
 
     }
 

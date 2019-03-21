@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int tasksAvailable = 0;
 
+    private ScoreManager scoreMan;
+
     private Transform tasksParents;
 
     private TaskGenerator taskGen;
@@ -36,6 +38,9 @@ public class GameManager : MonoBehaviour
         if (taskGen == null)
             taskGen = GetComponent<TaskGenerator>();
 
+        if (scoreMan == null)
+            scoreMan = GetComponent<ScoreManager>();
+
         nextTaskSlider.maxValue = taskFrequency;
 
         InvokeRepeating("AddTask", 1, taskFrequency);
@@ -56,6 +61,12 @@ public class GameManager : MonoBehaviour
         tasksAvailable = tasksParents.childCount;       
     }
 
+    public void TaskToTrash()
+    {
+        UpdateAvailableTasks();
+        scoreMan.PlayerLostScore();
+    }
+
     public void AddTask()
     {
         startTime = Time.time;
@@ -70,6 +81,7 @@ public class GameManager : MonoBehaviour
     private void CheckIfLost()
     {
         lives--;
+        scoreMan.PlayerLostScore();
 
         //
 
