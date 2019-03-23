@@ -12,6 +12,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Library Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5073504516831395103, guid: eebd7d9f120ff6f4ab4dce159fce869f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073504516831395103, guid: eebd7d9f120ff6f4ab4dce159fce869f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073504516831395103, guid: eebd7d9f120ff6f4ab4dce159fce869f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073504516831395103, guid: eebd7d9f120ff6f4ab4dce159fce869f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 761ccef8484ad4447be5db15645278c2,
+        type: 3}
+    - target: {fileID: 5073504516831395103, guid: eebd7d9f120ff6f4ab4dce159fce869f,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8845349202818550057, guid: eebd7d9f120ff6f4ab4dce159fce869f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,6 +147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoomText
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437496001049596009, guid: eebd7d9f120ff6f4ab4dce159fce869f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1600054559066270750, guid: eebd7d9f120ff6f4ab4dce159fce869f,
         type: 3}

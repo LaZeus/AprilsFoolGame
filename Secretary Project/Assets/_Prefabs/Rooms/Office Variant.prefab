@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6669578159070589112, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_Name
-      value: Office
+      value: Office Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3790309304456019740, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
@@ -120,18 +120,24 @@ PrefabInstance:
     - target: {fileID: 590439380509690666, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.3137255
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 590439380509690666, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.43107036
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 590439380509690666, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.5019608
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 590439380509690666, guid: a6e6e06a0e299524eac8b2e783c39a80,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 761ccef8484ad4447be5db15645278c2,
+        type: 3}
     - target: {fileID: 8344109205862131292, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_Name
@@ -140,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6371913029161720363, guid: a6e6e06a0e299524eac8b2e783c39a80,
         type: 3}
