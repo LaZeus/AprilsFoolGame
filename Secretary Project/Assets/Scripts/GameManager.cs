@@ -41,9 +41,28 @@ public class GameManager : MonoBehaviour
         if (scoreMan == null)
             scoreMan = GetComponent<ScoreManager>();
 
-        nextTaskSlider.maxValue = taskFrequency;
+        nextTaskSlider.maxValue = 1;
 
-        InvokeRepeating("AddTask", 1, taskFrequency);
+        Invoke("StartGame",1);
+    }
+
+    private void StartGame()
+    {
+        StartCoroutine(GameLoop());
+    }
+
+    private IEnumerator GameLoop()
+    {
+        AddTask();
+        startTime = Time.time;
+        nextTaskSlider.maxValue = taskFrequency;
+        yield return new WaitForSeconds(taskFrequency);
+        // calculate next task frequency
+        taskFrequency++;
+
+        
+
+        StartGame();
     }
 
     private void Update()
@@ -52,7 +71,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void UpdateSlider()
-    {
+    {       
         nextTaskSlider.value = Time.time - startTime;
     }
 
@@ -68,8 +87,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void AddTask()
-    {
-        startTime = Time.time;
+    {        
         UpdateAvailableTasks();
 
         if (tasksAvailable >= 3)       
