@@ -6,8 +6,9 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField, Range(0,10)]
     private float taskFrequency;
+
+    private Animator anim;
 
     [SerializeField]
     private int lives;
@@ -41,9 +42,11 @@ public class GameManager : MonoBehaviour
         if (scoreMan == null)
             scoreMan = GetComponent<ScoreManager>();
 
-        nextTaskSlider.maxValue = 1;
+        anim = GameObject.Find("All Elements").GetComponent<Animator>();
 
-        Invoke("StartGame",1);
+        nextTaskSlider.maxValue = 1;
+        taskFrequency = 10;
+        Invoke("StartGame", 1);
     }
 
     private void StartGame()
@@ -56,7 +59,16 @@ public class GameManager : MonoBehaviour
         AddTask();
 
         //task frequency formula.
-        taskFrequency+= 0.5f;
+        if (taskFrequency >= 8.5)
+            taskFrequency -= 0.5f;
+        else if (taskFrequency >= 7.5)
+            taskFrequency -= 0.4f;
+        else if (taskFrequency >= 6.5)
+            taskFrequency -= 0.3f;
+        else if (taskFrequency >= 6)
+            taskFrequency -= 0.25f;
+        else
+            taskFrequency = 5;
 
 
         startTime = Time.time;
@@ -85,7 +97,19 @@ public class GameManager : MonoBehaviour
     public void TaskToTrash()
     {
         UpdateAvailableTasks();
-        scoreMan.PlayerLostScore();
+        StartCoroutine(TemporaryMoreTasks());
+        //scoreMan.PlayerLostScore();
+    }
+
+    private IEnumerator TemporaryMoreTasks()
+    {
+        taskFrequency--;
+        for (int i = 0; i < 6; i++)
+        {
+            anim.SetTrigger("MildShake");
+            yield return new WaitForSeconds(1.5f);
+        }        
+        taskFrequency++;
     }
 
     public void AddTask()
