@@ -30,6 +30,9 @@ public class TaskGenerator : MonoBehaviour
     [ContextMenuItem("Get Rooms", "GetAvailableRooms")]
     private string[] rooms;
 
+    [SerializeField]
+    private Sprite[] roomIcons;
+
     [Header("Details")]
     [SerializeField]
     private string[] details;
@@ -39,11 +42,13 @@ public class TaskGenerator : MonoBehaviour
         OfficeGenerator oG = GetComponent<OfficeGenerator>();
 
         rooms = new string[oG.possibleRooms.Length];
+        roomIcons = new Sprite[oG.possibleRooms.Length];
 
         for (int i = 0; i < oG.possibleRooms.Length; i++)
         {
             string[] parts = oG.possibleRooms[i].name.Split(' ');
             rooms[i] = parts[0];
+            roomIcons[i] = oG.possibleRooms[i].GetComponent<Image>().sprite;
         }
     }
 
@@ -78,9 +83,7 @@ public class TaskGenerator : MonoBehaviour
                 tasksParent.rotation,
                 tasksParent);
 
-            curTask.name = task.name;
-
-            
+            curTask.name = task.name;          
 
             Task taskDetails = curTask.GetComponent<Task>();
 
@@ -91,7 +94,10 @@ public class TaskGenerator : MonoBehaviour
             taskDetails.person = coworkers[curPerson];
             curTask.GetComponent<Image>().color = coworkerColors[curPerson];
             // room
-            taskDetails.room = rooms[ReturnRandomIndexFromArray(rooms)];
+            int curRoom = ReturnRandomIndexFromArray(rooms);
+            taskDetails.room = rooms[curRoom];
+            curTask.transform.Find("Art").GetComponent<Image>().sprite = roomIcons[curRoom];
+
             // details
             taskDetails.details = details[ReturnRandomIndexFromArray(details)];
 

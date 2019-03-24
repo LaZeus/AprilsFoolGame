@@ -54,13 +54,15 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameLoop()
     {
         AddTask();
+
+        //task frequency formula.
+        taskFrequency+= 0.5f;
+
+
         startTime = Time.time;
         nextTaskSlider.maxValue = taskFrequency;
-        yield return new WaitForSeconds(taskFrequency);
-        // calculate next task frequency
-        taskFrequency++;
 
-        
+        yield return new WaitForSeconds(taskFrequency);      
 
         StartGame();
     }

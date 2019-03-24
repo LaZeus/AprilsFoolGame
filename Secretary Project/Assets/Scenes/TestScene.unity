@@ -1850,6 +1850,12 @@ MonoBehaviour:
   - Lab
   - Kitchen
   - Toilet
+  roomIcons:
+  - {fileID: 21300012, guid: 761ccef8484ad4447be5db15645278c2, type: 3}
+  - {fileID: 21300008, guid: 761ccef8484ad4447be5db15645278c2, type: 3}
+  - {fileID: 21300006, guid: 761ccef8484ad4447be5db15645278c2, type: 3}
+  - {fileID: 21300004, guid: 761ccef8484ad4447be5db15645278c2, type: 3}
+  - {fileID: 21300014, guid: 761ccef8484ad4447be5db15645278c2, type: 3}
   details:
   - The D button must be pressed.
   - The bus is full.
@@ -4594,46 +4600,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
-        type: 3}
-      propertyPath: mDeck.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
-        type: 3}
-      propertyPath: mDiscard.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
-        type: 3}
-      propertyPath: mHand
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
-        type: 3}
-      propertyPath: mBoard
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
-        type: 3}
-      propertyPath: mDeck.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
-        type: 3}
-      propertyPath: mDeck.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
-        type: 3}
-      propertyPath: mDiscard.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
-        type: 3}
-      propertyPath: mDiscard.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4794792950733422, guid: 1e3c91641a1efe643952aaebffb513df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -849.1746
@@ -4677,6 +4643,46 @@ PrefabInstance:
     - target: {fileID: 4794792950733422, guid: 1e3c91641a1efe643952aaebffb513df, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.99434966
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
+        type: 3}
+      propertyPath: mDeck.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
+        type: 3}
+      propertyPath: mDiscard.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
+        type: 3}
+      propertyPath: mHand
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
+        type: 3}
+      propertyPath: mBoard
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
+        type: 3}
+      propertyPath: mDeck.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
+        type: 3}
+      propertyPath: mDeck.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
+        type: 3}
+      propertyPath: mDiscard.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114612619698884876, guid: 1e3c91641a1efe643952aaebffb513df,
+        type: 3}
+      propertyPath: mDiscard.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e3c91641a1efe643952aaebffb513df, type: 3}
