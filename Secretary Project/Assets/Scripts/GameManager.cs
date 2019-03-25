@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         anim = GameObject.Find("All Elements").GetComponent<Animator>();
 
         nextTaskSlider.maxValue = 1;
-        taskFrequency = 10;
+        taskFrequency = 9.5f;
         Invoke("StartGame", 1);
     }
 
@@ -62,14 +62,10 @@ public class GameManager : MonoBehaviour
         AddTask();
 
         //task frequency formula.
-        if (taskFrequency >= 8.5)
+        if (taskFrequency >= 3.5)
             taskFrequency -= 1f;
-        else if (taskFrequency >= 5.5f)
-            taskFrequency -= 0.75f;
-        else if (taskFrequency >= 3.5f)
-            taskFrequency -= 0.45f;
         else
-            taskFrequency = 2.5f;
+            taskFrequency = Random.Range(2.5f, 3.5f);
 
 
         startTime = Time.time;
