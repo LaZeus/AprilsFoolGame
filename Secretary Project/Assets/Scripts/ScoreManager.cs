@@ -11,6 +11,8 @@ public class ScoreManager : MonoBehaviour
 
     private Animator anim;
 
+    private ParticleSystem[] mParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,21 @@ public class ScoreManager : MonoBehaviour
 
         anim = GameObject.Find("All Elements").GetComponent<Animator>();
 
+        GameObject particles = GameObject.Find("Particles");
+        mParticles = particles.GetComponentsInChildren<ParticleSystem>();
+
         TaskCompleted();
     }
 
     public void TaskCompleted()
     {
         score++;
+
+        //particles here
+        if (score > 0)
+            foreach (ParticleSystem part in mParticles)
+                part.Play();
+
         UpdateScore();
     }
 
