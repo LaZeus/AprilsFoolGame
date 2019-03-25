@@ -97,6 +97,7 @@ public class Employee : DropZone
             mapIcon.transform.SetParent(transform);
             mapIcon.gameObject.SetActive(false);
             room.transform.GetComponent<Room>().isOccupied = false;
+            // Spawn particles
             scoreMan.TaskCompleted();
         }
     }

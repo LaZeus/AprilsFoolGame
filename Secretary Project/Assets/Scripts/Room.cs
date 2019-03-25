@@ -6,15 +6,17 @@ public class Room : MonoBehaviour
 {
     public bool isOccupied;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if (Time.frameCount % 5 == 0)
+            CheckIfOccupied();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CheckIfOccupied()
     {
-        
+        if (transform.childCount > 1)
+            isOccupied = true;
+        else
+            isOccupied = false;
     }
 }

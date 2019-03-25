@@ -22,7 +22,6 @@ public class TaskDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (task != null)
             task.SendDataToTaskManager();
         
-
     }
 
     public void OnPointerExit(PointerEventData eventData) // IPointerExitHandler
