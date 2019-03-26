@@ -27,6 +27,8 @@ public class Employee : DropZone
 
     private ScoreManager scoreMan;
 
+    private AudioSource audioSource;
+
     private int jobDone = 0; 
 
     void Awake()
@@ -43,6 +45,9 @@ public class Employee : DropZone
 
         if (scoreMan == null)
             scoreMan = FindObjectOfType<ScoreManager>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
 
         transform.parent.Find("NameField").GetComponentInChildren<TextMeshProUGUI>().text = myStats.name;
 
@@ -84,6 +89,7 @@ public class Employee : DropZone
 
     private IEnumerator WorkTimer(Transform room,float delay)
     {
+        audioSource.Play();
         int curJob = jobDone;
         mapIcon.transform.SetParent(room);
         mapIcon.localPosition = Vector3.zero;

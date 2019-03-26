@@ -37,6 +37,8 @@ public class TaskGenerator : MonoBehaviour
     [SerializeField]
     private string[] details;
 
+    private AudioSource audioSource;
+
     private void GetAvailableRooms()
     {
         OfficeGenerator oG = GetComponent<OfficeGenerator>();
@@ -70,7 +72,10 @@ public class TaskGenerator : MonoBehaviour
     void Start()
     {
         if (tasksParent == null)
-            tasksParent = GameObject.Find("Tasks").transform;      
+            tasksParent = GameObject.Find("Tasks").transform;
+
+        if (audioSource == null)
+            audioSource = transform.GetChild(0).GetComponent<AudioSource>();
     }
 
     public void GenerateTask()
@@ -105,6 +110,8 @@ public class TaskGenerator : MonoBehaviour
 
             if (tasksParent.childCount == 1)
                 taskDetails.SendDataToTaskManager();
+
+            audioSource.Play();
         }
     }
 

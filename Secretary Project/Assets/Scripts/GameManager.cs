@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     private float startTime;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
 
         if (scoreMan == null)
             scoreMan = GetComponent<ScoreManager>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
 
         anim = GameObject.Find("All Elements").GetComponent<Animator>();
 
@@ -104,6 +109,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             anim.SetTrigger("MildShake");
+            if (i % 2 == 0) audioSource.Play();
             yield return new WaitForSeconds(1.5f);
         }        
         taskFrequency++;

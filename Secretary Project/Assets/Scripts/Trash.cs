@@ -13,6 +13,11 @@ public class Trash : DropZone {
     private TaskManager taskMan;
     private Transform tasksParent;
 
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip[] mAudioClips;
+
 	void Awake ()
     {
         Initialization();
@@ -30,6 +35,9 @@ public class Trash : DropZone {
 
         if (GM == null)
             GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
     }
 
     protected void TaskEffect(Task task)
@@ -46,11 +54,19 @@ public class Trash : DropZone {
 
         GM.TaskToTrash();
 
+        audioSource.clip = GetRandomAudioClip();
+        audioSource.Play();
+
         task.ToCompletedTasksPile(); // send the just activated card to discard pile
 
         if (tasksParent.childCount > 0)
             tasksParent.GetChild(0).GetComponent<Task>().SendDataToTaskManager();
         else
             taskMan.UpdateDescription("---", " ---", " ---", " ---");
+    }
+
+    private AudioClip GetRandomAudioClip()
+    {
+        return mAudioClips[Random.Range(0, mAudioClips.Length)];
     }
 }
