@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private int countToNextBurst = 0;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
 
         nextTaskSlider.maxValue = 1;
         taskFrequency = 9.5f;
+        countToNextBurst = Random.Range(4, 7);
         Invoke("StartGame", 1);
     }
 
@@ -65,18 +68,30 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameLoop()
     {
         AddTask();
+        countToNextBurst--;
+        float nextTaskSpawnTime;
 
-        //task frequency formula.
-        if (taskFrequency >= 3.5)
-            taskFrequency -= 1f;
+        if (countToNextBurst <= 0)
+        {            
+            nextTaskSpawnTime = 1.5f;
+            if (countToNextBurst == -2)
+                countToNextBurst = Random.Range(4, 6);
+        }
         else
-            taskFrequency = Random.Range(2.5f, 3.5f);
+        { 
+            //task frequency formula.
+            if (taskFrequency >= 3.5)
+                taskFrequency -= 1f;
+            else
+                taskFrequency = Random.Range(2.5f, 3.5f);
 
+            nextTaskSpawnTime = taskFrequency;
+        }
 
         startTime = Time.time;
-        nextTaskSlider.maxValue = taskFrequency;
+        nextTaskSlider.maxValue = nextTaskSpawnTime;
 
-        yield return new WaitForSeconds(taskFrequency);      
+        yield return new WaitForSeconds(nextTaskSpawnTime);      
 
         StartGame();
     }
