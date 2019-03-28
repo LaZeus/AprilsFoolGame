@@ -6591,14 +6591,14 @@ MonoBehaviour:
   - Clean the kitchen
   - The chemicals exploded
   coworkers:
-  - Dimitris
-  - Eliot
+  - Reby
+  - Jeremy
   - Terry
   - Clink
   - Fury
   coworkerColors:
   - {r: 0.7921569, g: 0.30980396, b: 0.31955197, a: 1}
-  - {r: 0.37093437, g: 0.30980396, b: 0.7921569, a: 1}
+  - {r: 0.7921569, g: 0.30980396, b: 0.7187907, a: 1}
   - {r: 0.30980396, g: 0.7921569, b: 0.7203958, a: 1}
   - {r: 0.425135, g: 0.7921569, b: 0.30980396, a: 1}
   - {r: 0.7921569, g: 0.58448935, b: 0.30980396, a: 1}
@@ -7773,7 +7773,7 @@ PrefabInstance:
     - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.37093437
+      value: 0.7921569
       objectReference: {fileID: 0}
     - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -7783,7 +7783,7 @@ PrefabInstance:
     - target: {fileID: 7045584143449976274, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.7921569
+      value: 0.7187907
       objectReference: {fileID: 0}
     - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -7798,22 +7798,22 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.name
-      value: Eliot
+      value: Jeremy
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.gender
-      value: Unknown
+      value: Male
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.age
-      value: Unknown
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.habits
-      value: Eating poop
+      value: Poop staring
       objectReference: {fileID: 0}
     - target: {fileID: 1674165816227758449, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -8130,6 +8130,24 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 693621247082648455, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b23041ead3e5e904cb41acb87ada798f,
+        type: 3}
+    - target: {fileID: 488451784688324926, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b23041ead3e5e904cb41acb87ada798f,
+        type: 3}
+    - target: {fileID: 2183261328573149139, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b23041ead3e5e904cb41acb87ada798f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5368fa8f1193fb4e9360bb18dcb86aa, type: 3}
 --- !u!1 &959879409
@@ -20130,15 +20148,30 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_text
+      value: Reby
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045584144758114326, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.name
-      value: Dimitris
+      value: Reby
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.gender
-      value: Male
+      value: Female
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -20148,7 +20181,7 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.habits
-      value: Play Vidya
+      value: Always on social Media
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -20475,5 +20508,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 3441886331863001710, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dce1a3bb804a1d349a3314e7411d5399,
+        type: 3}
+    - target: {fileID: 488451784688324926, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dce1a3bb804a1d349a3314e7411d5399,
+        type: 3}
+    - target: {fileID: 2183261328573149139, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dce1a3bb804a1d349a3314e7411d5399,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5368fa8f1193fb4e9360bb18dcb86aa, type: 3}
