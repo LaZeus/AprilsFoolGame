@@ -519,7 +519,7 @@ PrefabInstance:
     - target: {fileID: 7045584144870803578, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_Name
-      value: Employee (4)
+      value: Lex
       objectReference: {fileID: 0}
     - target: {fileID: 7045584144870803579, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -644,17 +644,17 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.name
-      value: Fury
+      value: Lex
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.gender
-      value: Fury
+      value: Unknown
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.age
-      value: 420(Fury years)
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -976,6 +976,24 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 693621247082648455, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb31243ca30254f4584a751de658cd22,
+        type: 3}
+    - target: {fileID: 488451784688324926, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb31243ca30254f4584a751de658cd22,
+        type: 3}
+    - target: {fileID: 2183261328573149139, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb31243ca30254f4584a751de658cd22,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5368fa8f1193fb4e9360bb18dcb86aa, type: 3}
 --- !u!1001 &221344878
@@ -988,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 7045584144870803578, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_Name
-      value: Employee (2)
+      value: Bumble
       objectReference: {fileID: 0}
     - target: {fileID: 7045584144870803579, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -1123,7 +1141,7 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.name
-      value: Terry
+      value: Bumble
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -1133,7 +1151,7 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.age
-      value: 19
+      value: ???
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -1455,6 +1473,24 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 693621247082648455, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d6b60061aa1ecba4e88c6dc422ad00bd,
+        type: 3}
+    - target: {fileID: 488451784688324926, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d6b60061aa1ecba4e88c6dc422ad00bd,
+        type: 3}
+    - target: {fileID: 2183261328573149139, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d6b60061aa1ecba4e88c6dc422ad00bd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5368fa8f1193fb4e9360bb18dcb86aa, type: 3}
 --- !u!1 &223816372
@@ -7664,7 +7700,7 @@ PrefabInstance:
     - target: {fileID: 7045584144870803578, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_Name
-      value: Employee (1)
+      value: Jeremy
       objectReference: {fileID: 0}
     - target: {fileID: 7045584144870803579, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -7809,7 +7845,7 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.age
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -8461,7 +8497,7 @@ PrefabInstance:
     - target: {fileID: 7045584144870803578, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_Name
-      value: Employee (3)
+      value: Xali
       objectReference: {fileID: 0}
     - target: {fileID: 7045584144870803579, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -8591,12 +8627,12 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.name
-      value: Clink
+      value: Xali
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.gender
-      value: Bot
+      value: '---'
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -8606,7 +8642,7 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.habits
-      value: Making cool stuff
+      value: Upvoting cat pictures
       objectReference: {fileID: 0}
     - target: {fileID: 1674165816227758449, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -8923,6 +8959,24 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 693621247082648455, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9473bf4beeeb3e2429e348497e7d2208,
+        type: 3}
+    - target: {fileID: 488451784688324926, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9473bf4beeeb3e2429e348497e7d2208,
+        type: 3}
+    - target: {fileID: 2183261328573149139, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9473bf4beeeb3e2429e348497e7d2208,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5368fa8f1193fb4e9360bb18dcb86aa, type: 3}
 --- !u!224 &1091174575 stripped
@@ -20057,7 +20111,7 @@ PrefabInstance:
     - target: {fileID: 7045584144870803578, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: m_Name
-      value: Employee
+      value: Reby
       objectReference: {fileID: 0}
     - target: {fileID: 7045584144870803579, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
@@ -20217,7 +20271,7 @@ PrefabInstance:
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
       propertyPath: myStats.habits
-      value: Eating Gigabytes
+      value: Eating
       objectReference: {fileID: 0}
     - target: {fileID: 3120325779866425004, guid: f5368fa8f1193fb4e9360bb18dcb86aa,
         type: 3}
