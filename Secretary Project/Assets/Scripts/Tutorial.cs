@@ -16,6 +16,8 @@ public class Tutorial : MonoBehaviour
 
     private int nextGameObject = 0;
 
+    private bool canShow = true;
+
     private void GetTutorialObjects()
     {
         tutorialObjects = new GameObject[transform.childCount];
@@ -32,10 +34,17 @@ public class Tutorial : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
+            StartCoroutine(ShortDelay());
+    }
+
+    private IEnumerator ShortDelay()
+    {
+        yield return new WaitForSeconds(0.05f);
+        if (canShow)
             ShowNext();
     }
 
-    public void ShowNext()
+    private void ShowNext()
     {
         if (nextGameObject - 1 >= 0)
             tutorialObjects[nextGameObject - 1].SetActive(false);
@@ -50,6 +59,7 @@ public class Tutorial : MonoBehaviour
 
     public void StartGame()
     {
+        canShow = false;
         GM.StartGame();
         Destroy(gameObject);
     }
