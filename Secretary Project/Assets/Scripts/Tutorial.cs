@@ -24,6 +24,30 @@ public class Tutorial : MonoBehaviour
             tutorialObjects[i] = transform.GetChild(i).gameObject;
     }
 
+    private void Start()
+    {
+        ShowNext();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+            ShowNext();
+    }
+
+    public void ShowNext()
+    {
+        if (nextGameObject - 1 >= 0)
+            tutorialObjects[nextGameObject - 1].SetActive(false);
+
+        if (nextGameObject < tutorialObjects.Length)
+            tutorialObjects[nextGameObject].SetActive(true);
+        else
+            StartGame();
+
+        nextGameObject++;
+    }
+
     public void StartGame()
     {
         GM.StartGame();

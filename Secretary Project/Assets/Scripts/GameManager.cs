@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        GetComponent<OfficeGenerator>().CreateOffice();
         nextTaskSlider.maxValue = 1;
         taskFrequency = 9.5f;
         countToNextBurst = Random.Range(4, 7);

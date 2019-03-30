@@ -25,7 +25,7 @@ public class OfficeGenerator : MonoBehaviour
         if (officeParent == null)
             officeParent = GameObject.Find("Map").transform;
 
-        CreateOffice();
+        //CreateOffice();
     }
 
     public void CreateOffice()
