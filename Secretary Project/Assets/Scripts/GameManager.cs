@@ -52,15 +52,18 @@ public class GameManager : MonoBehaviour
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
 
-        anim = GameObject.Find("All Elements").GetComponent<Animator>();
+        anim = GameObject.Find("All Elements").GetComponent<Animator>();      
+    }
 
+    public void StartGame()
+    {
         nextTaskSlider.maxValue = 1;
         taskFrequency = 9.5f;
         countToNextBurst = Random.Range(4, 7);
-        Invoke("StartGame", 1);
+        Invoke("StartGameLoop", 1);
     }
 
-    private void StartGame()
+    private void StartGameLoop()
     {
         StartCoroutine(GameLoop());
     }
@@ -91,14 +94,15 @@ public class GameManager : MonoBehaviour
         startTime = Time.time;
         nextTaskSlider.maxValue = nextTaskSpawnTime;
 
-        yield return new WaitForSeconds(nextTaskSpawnTime);      
+        yield return new WaitForSeconds(nextTaskSpawnTime);
 
-        StartGame();
+        StartGameLoop();
     }
 
     private void Update()
     {
-        UpdateSlider();
+        if (taskFrequency != 0)
+            UpdateSlider();
     }
 
     private void UpdateSlider()
