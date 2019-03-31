@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
 
     private Animator anim;
 
+    private AudioSource audioSource;
     private ParticleSystem[] mParticles;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class ScoreManager : MonoBehaviour
         anim = GameObject.Find("All Elements").GetComponent<Animator>();
 
         GameObject particles = GameObject.Find("Particles");
+        audioSource = particles.GetComponent<AudioSource>();
         mParticles = particles.GetComponentsInChildren<ParticleSystem>();
 
         TaskCompleted();
@@ -32,8 +34,11 @@ public class ScoreManager : MonoBehaviour
 
         //particles here
         if (score > 0)
+        {
             foreach (ParticleSystem part in mParticles)
                 part.Play();
+            audioSource.Play();
+        }
 
         UpdateScore();
     }

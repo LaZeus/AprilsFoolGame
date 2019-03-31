@@ -7,6 +7,8 @@ public class TaskGenerator : MonoBehaviour
 {
     private Transform tasksParent;
 
+    public bool gameHasStarted = false;
+
     [SerializeField]
     private GameObject task;
 
@@ -80,7 +82,7 @@ public class TaskGenerator : MonoBehaviour
 
     public void GenerateTask()
     {
-        if (tasksParent.childCount < 3)
+        if (tasksParent.childCount < 3 && gameHasStarted)
         {
             GameObject curTask = Instantiate(
                 task,

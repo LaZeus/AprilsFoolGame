@@ -58,8 +58,10 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         GetComponent<OfficeGenerator>().CreateOffice();
+        taskGen.gameHasStarted = true;
         nextTaskSlider.maxValue = 1;
         taskFrequency = 9.5f;
+        startTime = Time.time;
         countToNextBurst = Random.Range(4, 7);
         Invoke("StartGameLoop", 1);
     }
